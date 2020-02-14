@@ -17,6 +17,9 @@ function Header() {
             <Link to="/manage-event">
               <li>Manage Events</li>
             </Link>
+            <Link to="/manage-user">
+              <li>Manage Users</li>
+            </Link>
             <li>Search</li>
             <li>Login</li>
           </ul>
