@@ -9,21 +9,21 @@ import './App.css';
 function App() {
   const [events, setEvents] = useState([]);
   const [searchString, setSearchString] = useState('');
-  // const [lastSearch, setLastSearch] = useState('');
+  const [lastSearch, setLastSearch] = useState('');
+  /* Build a URL from the searchOptions object */
 
   useEffect(() => {
     getEvents(searchString);
   }, []);
 
-  function getEvents(searchString) {
-    /* Build a URL from the searchOptions object */
-    const url = 'http://localhost:3001/events';
+  const url = 'http://localhost:3001/events';
 
+  function getEvents(searchString) {
     fetch(url)
       .then(response => response.json())
       .then(response => {
-        setEvents(response.data);
-        // setLastSearch(searchString);
+        setEvents(response);
+        setLastSearch(searchString);
         setSearchString('');
       })
       .catch(console.error);
@@ -41,12 +41,27 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Search
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        searchString={searchString}
-      />
-      <Results events={events} />
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => {
+            return (
+              <Search
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                searchString={searchString}
+              />
+            );
+          }}
+        />
+        <Route
+          path="/results/:searchString"
+          render={() => {
+            return <Results events={events} />;
+          }}
+        />
+      </Switch>
     </div>
   );
 }

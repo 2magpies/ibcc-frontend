@@ -1,4 +1,17 @@
+/* Create color variables */
+:root {
+  --primary: #532c3e;
+  --secondary: #2e4f63;
+  --secondary-light: #dee9f3;
+  --neutral: #8f8f8f;
+  --neutral-light: #bdbdbd;
+  --white: #fff;
+  --zinger: #de6663;
+}
+
 .App {
   text-align: center;
 }
+
+
 
