@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Search from './components/Search/Search';
 import Results from './components/Results/Results';
@@ -10,7 +10,7 @@ function App() {
   const [events, setEvents] = useState([]);
   const [searchString, setSearchString] = useState('');
   const [lastSearch, setLastSearch] = useState('');
-  /* Build a URL from the searchOptions object */
+  const [newResults, setResults] = useState([]);
 
   useEffect(() => {
     getEvents(searchString);
@@ -35,6 +35,13 @@ function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    const searchedResults = events.filter(
+      result =>
+        (result !== undefined &&
+          result.name.toLowerCase().includes(searchString.toLowerCase())) ||
+        result.name.toLowerCase().includes(searchString.toLowerCase())
+    );
+    setResults(searchedResults);
     getEvents(searchString);
   }
 
@@ -56,11 +63,14 @@ function App() {
           }}
         />
         <Route
-          path="/results/:searchString"
+          path={`/results/${lastSearch}`}
           render={() => {
-            return <Results events={events} />;
+            return <Results lastSearch={lastSearch} newResults={newResults} />;
           }}
         />
+        <Route path="/">
+          <Redirect to={`/results/${lastSearch}`} />
+        </Route>
       </Switch>
     </div>
   );

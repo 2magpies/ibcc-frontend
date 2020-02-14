@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Search(props) {
   const { handleSubmit, handleChange, searchString } = props;
@@ -12,9 +13,10 @@ function Search(props) {
         onChange={handleChange}
         value={searchString}
       />
-      <button type="submit">
-        Submit
-      </button>
+      <button type="submit">Submit</button>
+      <Link to="/results">
+        <button> test</button>
+      </Link>
     </form>
   );
 }
