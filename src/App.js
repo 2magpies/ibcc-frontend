@@ -3,6 +3,7 @@ import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Search from './components/Search/Search';
 import Results from './components/Results/Results';
+import ManageEvents from './components//ManageEvents/ManageEvents';
 
 import './App.css';
 
@@ -68,9 +69,17 @@ function App() {
             return <Results lastSearch={lastSearch} newResults={newResults} />;
           }}
         />
-        <Route path="/">
+        {/* <Route path="/">
           <Redirect to={`/results/${lastSearch}`} />
-        </Route>
+        </Route> */}
+
+        <Route
+          exact
+          path="/manage-event"
+          render={() => {
+            return <ManageEvents />;
+          }}
+        />
       </Switch>
     </div>
   );
