@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Search from './components/Search/Search';
 import Results from './components/Results/Results';
 import ManageEvents from './components//ManageEvents/ManageEvents';
+import ManageUser from './components//ManageUser/ManageUser';
 
 import './App.css';
 
@@ -72,7 +73,13 @@ function App() {
         {/* <Route path="/">
           <Redirect to={`/results/${lastSearch}`} />
         </Route> */}
-
+        <Route
+          exact
+          path="/manage-user"
+          render={() => {
+            return <ManageUser />;
+          }}
+        />
         <Route
           exact
           path="/manage-event"
