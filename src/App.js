@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Search from './components/Search/Search';
 import Results from './components/Results/Results';
 import ManageEvents from './components//ManageEvents/ManageEvents';
 import ManageUser from './components//ManageUser/ManageUser';
+import BrowseAll from './components/BrowseAll/BrowseAll';
 
 import './App.css';
 
@@ -50,6 +51,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      
       <Switch>
         <Route
           exact
@@ -88,6 +90,7 @@ function App() {
           }}
         />
       </Switch>
+      <BrowseAll events={events} />
     </div>
   );
 }
