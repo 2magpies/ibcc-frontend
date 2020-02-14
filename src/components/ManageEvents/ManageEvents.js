@@ -1,6 +1,5 @@
 import React from 'react';
 import './ManageEvents.css';
-import Axios from 'axios';
 
 function ManageEvents() {
   // const [newNameValue, setNewName] = useState([]);
