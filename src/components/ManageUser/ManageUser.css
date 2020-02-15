@@ -1,0 +1,4 @@
+.postUser {
+    display: flex;
+    flex-direction: column;
+}
