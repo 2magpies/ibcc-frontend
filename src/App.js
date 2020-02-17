@@ -17,6 +17,7 @@ function App() {
 
   useEffect(() => {
     getEvents(searchString);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const url = 'http://localhost:3001/events';
@@ -51,17 +52,22 @@ function App() {
   return (
     <div className="App">
       <Header />
-      
+      <Search
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        searchString={searchString}
+      />
+
       <Switch>
         <Route
           exact
           path="/"
           render={() => {
             return (
-              <Search
+              <BrowseAll
+                events={events}
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
-                searchString={searchString}
               />
             );
           }}
@@ -72,25 +78,19 @@ function App() {
             return <Results lastSearch={lastSearch} newResults={newResults} />;
           }}
         />
-        {/* <Route path="/">
-          <Redirect to={`/results/${lastSearch}`} />
-        </Route> */}
         <Route
-          exact
           path="/manage-user"
           render={() => {
             return <ManageUser />;
           }}
         />
         <Route
-          exact
           path="/manage-event"
           render={() => {
             return <ManageEvents />;
           }}
         />
       </Switch>
-      <BrowseAll events={events} />
     </div>
   );
 }
