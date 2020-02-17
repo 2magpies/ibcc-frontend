@@ -1,5 +1,6 @@
 import React from 'react';
 import './Browse.css';
+import moment from 'moment'
 
 function BrowseAll(props) {
   const { events } = props;
@@ -10,10 +11,10 @@ function BrowseAll(props) {
           <div key={event._id} className="event">
             <img src={event.imageUrl} alt="event" />
             <div className="eventDetails">
-              <span>{event.time}</span>
-              <span>{event.date}</span>
-              <span>{event.name}</span>
-              <span>{event.location}</span>
+              <p>{moment(event[event.time]).format('h:mm a')}</p>
+              <p>{moment(event[event.date]).format('ddd, MMM Do YYYY')}</p>
+              <p>{event.name}</p>
+              <p>{event.location}</p>
             </div>
           </div>
         ))}

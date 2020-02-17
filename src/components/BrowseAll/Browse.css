@@ -12,6 +12,7 @@
   width: 20vw;
   margin: 1%;
   padding: 0;
+  padding-bottom: 2%;
 }
 .event img {
   height: 20vh;
@@ -21,9 +22,8 @@
   margin: 0;
 }
 
-.eventDetails span {
-  text-align: right;
+.eventDetails p {
   margin: 0;
   word-wrap: break-word;
-  padding: 1%;
+  padding: 0.2%
 }
