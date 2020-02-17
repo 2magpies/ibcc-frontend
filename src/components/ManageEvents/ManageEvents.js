@@ -41,7 +41,7 @@ function ManageEvents() {
     data.timezone = event.target['timezone'].value;
     data.description = event.target['description'].value;
     data.price = event.target['price'].value;
-    data.imageUrl = event.target['imageUrl'].value;
+    data.imageURL = event.target['imageURL'].value;
     data.category = event.target['category'].value;
 
     postNewEvent(data);
@@ -90,7 +90,7 @@ function ManageEvents() {
         </div>
         <div>
           <label>Image Url</label>
-          <input type="text" name="imageUrl" />
+          <input type="text" name="imageURL" />
         </div>
         <div>
           <label id="category" name="category">

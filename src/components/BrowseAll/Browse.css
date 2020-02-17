@@ -25,5 +25,10 @@
 .eventDetails p {
   margin: 0;
   word-wrap: break-word;
-  padding: 0.2%
+  padding: 0.2%;
+}
+
+.eventDetails h4{
+  padding: 0;
+  margin: 0;
 }

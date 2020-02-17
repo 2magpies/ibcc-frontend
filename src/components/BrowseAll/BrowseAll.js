@@ -11,9 +11,9 @@ function BrowseAll(props) {
           <div key={event._id} className="event">
             <img src={event.imageUrl} alt="event" />
             <div className="eventDetails">
+              <h4>{event.name}</h4>
               <p>{moment(event[event.time]).format('h:mm a')}</p>
               <p>{moment(event[event.date]).format('ddd, MMM Do YYYY')}</p>
-              <p>{event.name}</p>
               <p>{event.location}</p>
             </div>
           </div>
