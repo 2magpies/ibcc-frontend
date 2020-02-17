@@ -1,6 +1,6 @@
 import React from 'react';
 import './Browse.css';
-import moment from 'moment'
+import moment from 'moment';
 
 function BrowseAll(props) {
   const { events } = props;
