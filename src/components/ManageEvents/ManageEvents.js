@@ -45,6 +45,7 @@ function ManageEvents() {
     postNewEvent(data);
   };
 
+
   return (
     <div className="postEvent">
       <form onSubmit={handleSubmit}>
