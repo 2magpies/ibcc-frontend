@@ -21,7 +21,9 @@ function ManageEvents() {
       },
       body: JSON.stringify(data)
     })
-      .then(response => response.json())
+      .then(response => {
+        response.json();
+      })
       .then(data => {
         console.log('Success:', data);
       })
@@ -43,6 +45,7 @@ function ManageEvents() {
     data.category = event.target['category'].value;
 
     postNewEvent(data);
+    // this.history.pushState('/ibcc');
   };
 
   return (
@@ -50,25 +53,20 @@ function ManageEvents() {
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name</label>
-          <input
-            type="text"
-            placeholder="Enter name of event"
-            name="name"
-            required
-          />
+          <input type="text" placeholder="Enter name of event" name="name" />
         </div>
 
         <div>
           <label>Date</label>
-          <input type="date" placeholder="Enter a date" name="date" required />
+          <input type="date" placeholder="Enter a date" name="date" />
         </div>
         <div>
           <label>Time</label>
-          <input type="time" name="time" required />
+          <input type="time" name="time" />
         </div>
         <div>
           <label name="timezone">Timezone</label>
-          <select id="timezone" required>
+          <select id="timezone">
             <option value="pst">PST</option>
             <option value="cst">CST</option>
             <option value="est">EST</option>
@@ -83,22 +81,21 @@ function ManageEvents() {
             type="text"
             placeholder="Enter description of event"
             name="description"
-            required
           />
         </div>
         <div>
           <label>Price</label>
-          <input type="number" name="price" required />
+          <input type="number" name="price" />
         </div>
         <div>
           <label>Image Url</label>
-          <input type="text" name="imageUrl" required />
+          <input type="text" name="imageUrl" />
         </div>
         <div>
           <label id="category" name="category">
             Category
           </label>
-          <select id="category" required>
+          <select id="category">
             <option value="" disabled defaultValue>
               Choose One
             </option>
