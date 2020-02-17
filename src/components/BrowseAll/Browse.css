@@ -1,0 +1,29 @@
+.results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.event {
+  background: rgb(197, 195, 195);
+  border: 2px solid black;
+  border-radius: 3%;
+  height: 30vh;
+  width: 20vw;
+  margin: 1%;
+  padding: 0;
+}
+.event img {
+  height: 20vh;
+  width: 20vw;
+  border-radius: 2%;
+  padding: 0;
+  margin: 0;
+}
+
+.eventDetails span {
+  text-align: right;
+  margin: 0;
+  word-wrap: break-word;
+  padding: 1%;
+}

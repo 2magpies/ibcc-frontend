@@ -1,19 +1,20 @@
 import React from 'react';
+import './Browse.css';
 
 function BrowseAll(props) {
   const { events } = props;
   return (
     <>
-    
       <div className="results">
         {events.map(event => (
           <div key={event._id} className="event">
-            <img src={event.imageUrl} alt="event"/>
-            <p>{event.time}</p>
-            <p>{event.date}</p>
-            <p>{event.name}</p>
-            <p>{event.location}</p>
-            
+            <img src={event.imageUrl} alt="event" />
+            <div className="eventDetails">
+              <span>{event.time}</span>
+              <span>{event.date}</span>
+              <span>{event.name}</span>
+              <span>{event.location}</span>
+            </div>
           </div>
         ))}
       </div>
