@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header/Header';
 import Results from './components/Results/Results';
 import ManageEvents from './components//ManageEvents/ManageEvents';
