@@ -21,6 +21,9 @@ function ManageEvents() {
       },
       body: JSON.stringify(data)
     })
+      .then(response => {
+        response.redirect('/');
+      })
       .then(response => response.json())
       .then(data => {
         console.log('Success:', data);
@@ -43,9 +46,16 @@ function ManageEvents() {
     data.category = event.target['category'].value;
 
     postNewEvent(data);
+    window.location.href = 'http://localhost:3000/ibcc';
   };
 
-
+  const handleRedirect = res => {
+    if (res.status === 200) {
+      window.location.href = 'http://localhost:3000/ibcc';
+    } else {
+      console.log('something went wrong');
+    }
+  };
   return (
     <div className="postEvent">
       <form onSubmit={handleSubmit}>
