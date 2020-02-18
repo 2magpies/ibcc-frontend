@@ -3,7 +3,7 @@ import './ManageUser.css';
 
 function ManageUser() {
   const postNewUser = userData => {
-    const userUrl = 'http://localhost:3001/users';
+    const userUrl = 'http://ibcc.herokuapp.com/users';
 
     fetch(userUrl, {
       method: 'POST',

@@ -4,7 +4,7 @@ import { Form, Dropdown, Col, InputGroup, Button } from 'react-bootstrap';
 
 function ManageEvents() {
   const postNewEvent = data => {
-    const url = 'http://localhost:3001/events';
+    const url = 'http://ibcc.herokuapp.com/events';
 
     fetch(url, {
       method: 'POST',

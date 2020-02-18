@@ -40,22 +40,24 @@ nav li {
   box-shadow: 10px 10px 100vw 100vw rgba(0, 0, 0, 0.7);
 }
 
-#loginWindow input {
-  width: 20vw;
-  height: 3vh;
-}
-
-#loginWindow button {
-  font-family: 'Poppins', sans-serif;
-  margin-left: 0;
-  padding: 0.4rem;
-  min-width: 6vw;
-}
-
-.loginShow {
+.navbar {
   display: flex;
+  justify-content: space-between;
 }
 
-.loginHide {
-  display: none;
+#dropdownMenu {
+  background-color: transparent;
+  border: none;
+  color: blue;
+
+}
+
+#dropdownMenu:hover{
+  border: none;
+}
+
+
+#dropdownMenu:focus{
+  border: none;
+  box-shadow: none;
 }
