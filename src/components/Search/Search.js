@@ -1,8 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 
 function Search(props) {
-  const { handleSubmit, handleChange, searchString } = props;
+  const [redirect, setRedirect] = useState('');
+  const { handleSubmit, handleChange, searchString, lastSearch } = props;
+
+ function handleRedirect(){
+    setRedirect(true);
+  };
+
   return (
     <form onSubmit={handleSubmit} className="form-horizontal">
       <input
@@ -13,10 +19,10 @@ function Search(props) {
         onChange={handleChange}
         value={searchString}
       />
-      <button type="submit">Submit</button>
-      <Link to="/results">
-        <button> test</button>
-      </Link>
+      <button type="submit" onClick={handleRedirect}>
+        Submit
+      </button>
+      {redirect && <Redirect to={`/results/${lastSearch}`} />}
     </form>
   );
 }

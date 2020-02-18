@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     getEvents(searchString);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const url = 'http://localhost:3001/events';
@@ -51,11 +51,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Search
+      <Header
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         searchString={searchString}
+        lastSearch={lastSearch}
       />
 
       <Switch>
