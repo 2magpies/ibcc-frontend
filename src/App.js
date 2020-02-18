@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     getEvents(searchString);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const url = 'http://localhost:3001/events';
@@ -35,15 +35,17 @@ function App() {
 
   function handleChange(event) {
     setSearchString(event.target.value);
+    setResults([]);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
+
     const searchedResults = events.filter(
       result =>
         (result !== undefined &&
           result.name.toLowerCase().includes(searchString.toLowerCase())) ||
-        result.name.toLowerCase().includes(searchString.toLowerCase())
+        result.location.toLowerCase().includes(searchString.toLowerCase())
     );
     setResults(searchedResults);
     getEvents(searchString);
@@ -51,11 +53,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Search
+      <Header
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         searchString={searchString}
+        lastSearch={lastSearch}
       />
 
       <Switch>

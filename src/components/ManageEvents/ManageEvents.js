@@ -2,14 +2,6 @@ import React from 'react';
 import './ManageEvents.css';
 
 function ManageEvents() {
-  // const [newNameValue, setNewName] = useState([]);
-  // const [newDateValue, setNewDate] = useState([]);
-  // const [newTimeValue, setNewTime] = useState([]);
-  // const [newTimezoneValue, setNewTimezone] = useState([]);
-  // const [newDescriptionValue, setNewDescription] = useState([]);
-  // const [newPriceValue, setNewPrice] = useState([]);
-  // const [newUrlValue, setNewUrl] = useState([]);
-  // const [newCategoryValue, setNewCategory] = useState([]);
 
   const postNewEvent = data => {
     const url = 'http://localhost:3001/events';
