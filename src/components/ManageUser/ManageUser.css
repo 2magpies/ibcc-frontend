@@ -1,4 +1,37 @@
 .postUser {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;	
+  background: rgb(197, 195, 195);
+  border: 2px solid black;
+  border-radius: 3%;
+  height: 50vh;
+  width: 40vw;
+  margin: 5% 30%;
+}	
+
+
+.userDetails {
+   padding: 0% 10%;
+   padding-bottom: 0;
+   text-align: center;
+   font-size: 2rem;
+   margin: auto 5%;
 }
+
+.userDetails input {
+    font-size: larger;
+}
+
+.userNameField{
+    padding: 2%;
+}
+
+.emailField{
+    margin-top: 5%;
+}
+
+.userDetails button {
+    border-radius: 3%;
+    font-size: 2rem;
+    margin-top: 20%;
+} 
