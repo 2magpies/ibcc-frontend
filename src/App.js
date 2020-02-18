@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Search from './components/Search/Search';
 import Results from './components/Results/Results';
 import ManageEvents from './components//ManageEvents/ManageEvents';
 import ManageUser from './components//ManageUser/ManageUser';
 import BrowseAll from './components/BrowseAll/BrowseAll';
+import MainSearch from './components/MainSearch/MainSearch';
 
 import './App.css';
 
@@ -66,11 +66,19 @@ function App() {
           path="/"
           render={() => {
             return (
-              <BrowseAll
-                events={events}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}
-              />
+              <>
+                <MainSearch
+                  handleChange={handleChange}
+                  handleSubmit={handleSubmit}
+                  searchString={searchString}
+                  lastSearch={lastSearch}
+                />
+                <BrowseAll
+                  events={events}
+                  handleChange={handleChange}
+                  handleSubmit={handleSubmit}
+                />
+              </>
             );
           }}
         />

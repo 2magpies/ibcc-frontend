@@ -5,7 +5,7 @@ import Search from '../Search/Search';
 
 function Header(props) {
   const { handleSubmit, handleChange, searchString, lastSearch } = props;
-  const [loginClass, setLoginClass] = useState('');
+  const [loginClass, setLoginClass] = useState('loginHide');
 
   const loginToggle = () => {
     if (loginClass === 'loginHide') {

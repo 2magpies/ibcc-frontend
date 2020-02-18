@@ -1,25 +1,28 @@
-.results {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.eventGrid{
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  background-color: rgb(230, 230, 230);
+  padding: 2rem;
+  
 }
 
 .event {
-  background: rgb(197, 195, 195);
-  border: 2px solid black;
-  border-radius: 3%;
-  height: 30vh;
-  width: 20vw;
+  background: rgb(245, 245, 245);
+  height: 37vh;
+  width: 30vw;
+  border: 2px solid rgb(168, 168, 168);
   margin: 1%;
   padding: 0;
   padding-bottom: 2%;
+  text-align: center;
 }
 .event img {
-  height: 20vh;
-  width: 20vw;
-  border-radius: 2%;
+  height: 25vh;
+  width: 30vw;
   padding: 0;
-  margin: 0;
+  margin-bottom: 1rem;
 }
 
 .eventDetails p {
