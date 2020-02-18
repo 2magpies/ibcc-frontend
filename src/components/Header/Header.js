@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import Search from '../Search/Search';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
 function Header(props) {
   const { handleSubmit, handleChange, searchString, lastSearch } = props;
@@ -46,6 +50,29 @@ function Header(props) {
 
   return (
     <>
+      <Navbar bg="light" variant="light">
+        <Navbar.Brand href="/">IBCC</Navbar.Brand>
+        <Nav className="mr-auto">
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/manage-event">Manage Events</Nav.Link>
+          <Nav.Link href="/manage-user">Manage User</Nav.Link>
+        </Nav>
+        <Search
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          searchString={searchString}
+          lastSearch={lastSearch}
+        />
+      </Navbar>
+      <br />
+    </>
+  );
+}
+
+export default Header;
+
+{
+  /* <>
       <header>
         <div>
           <Link to="/">
@@ -89,6 +116,5 @@ function Header(props) {
       </div>
     </>
   );
+} */
 }
-
-export default Header;
