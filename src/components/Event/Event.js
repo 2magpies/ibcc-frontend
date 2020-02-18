@@ -10,7 +10,7 @@ function Event(props) {
   }, []);
 
   function getEvent() {
-    const url = `http://localhost:3001/events/${match.params.id}`;
+    const url = `http://ibcc.herokuapp.com/events/${match.params.id}`;
     fetch(url)
       .then(response => response.json())
       .then(response => {

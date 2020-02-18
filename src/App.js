@@ -7,7 +7,6 @@ import Event from './components/Event/Event';
 import ManageEvents from './components//ManageEvents/ManageEvents';
 import ManageUser from './components//ManageUser/ManageUser';
 import BrowseAll from './components/BrowseAll/BrowseAll';
-import MainSearch from './components/MainSearch/MainSearch';
 
 import './App.css';
 
@@ -22,7 +21,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const url = 'http://localhost:3001/events';
+  const url = 'http://ibcc.herokuapp.com/events';
 
   function getEvents(searchString) {
     fetch(url)
@@ -68,19 +67,11 @@ function App() {
           path="/"
           render={() => {
             return (
-              <>
-                <MainSearch
-                  handleChange={handleChange}
-                  handleSubmit={handleSubmit}
-                  searchString={searchString}
-                  lastSearch={lastSearch}
-                />
-                <BrowseAll
-                  events={events}
-                  handleChange={handleChange}
-                  handleSubmit={handleSubmit}
-                />
-              </>
+              <BrowseAll
+                events={events}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+              />
             );
           }}
         />
