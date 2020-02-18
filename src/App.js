@@ -35,15 +35,17 @@ function App() {
 
   function handleChange(event) {
     setSearchString(event.target.value);
+    setResults([]);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
+
     const searchedResults = events.filter(
       result =>
         (result !== undefined &&
           result.name.toLowerCase().includes(searchString.toLowerCase())) ||
-        result.name.toLowerCase().includes(searchString.toLowerCase())
+        result.location.toLowerCase().includes(searchString.toLowerCase())
     );
     setResults(searchedResults);
     getEvents(searchString);
