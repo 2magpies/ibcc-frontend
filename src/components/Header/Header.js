@@ -62,18 +62,35 @@ function Header(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+          <Tab.Container
+            // id="left-tabs-example"
+            defaultActiveKey="first"
+          >
             <Row>
-              <Col sm={3}>
-                <Nav variant="pills" className="flex-column">
+              <Nav variant="" className="flex-row">
+                <Col sm={7}>
+                  <Nav.Item>
+                    <Nav.Link eventKey="first">Sign Up</Nav.Link>
+                  </Nav.Item>
+                </Col>
+                <Col sm={7}>
+                  <Nav.Item>
+                    <Nav.Link eventKey="second">Login</Nav.Link>
+                  </Nav.Item>
+                </Col>
+              </Nav>
+            </Row>
+            <Row>
+              {/* <Col sm={3}> */}
+              {/* <Nav variant="pills" className="flex-column">
                   <Nav.Item>
                     <Nav.Link eventKey="first">Sign Up</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
                     <Nav.Link eventKey="second">Login</Nav.Link>
-                  </Nav.Item>
-                </Nav>
-              </Col>
+                  </Nav.Item> */}
+              {/* </Nav> */}
+              {/* </Col> */}
               <Col sm={9}>
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
