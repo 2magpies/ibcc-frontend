@@ -6,7 +6,7 @@ function BrowseAll(props) {
   const { events } = props;
   return (
     <>
-      <div className="results">
+      <div className="eventGrid">
         {events.map(event => (
           <div key={event._id} className="event">
             <img src={event.imageUrl} alt="event" />
