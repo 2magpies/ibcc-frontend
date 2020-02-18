@@ -91,21 +91,23 @@ function App() {
           }}
         />
         <Route
-          path="/:id"
-          render={routerProps => {
-            return <Event match={routerProps.match} />;
-          }}
-        />
-        <Route
           path="/manage-user"
           render={() => {
             return <ManageUser />;
           }}
         />
         <Route
+          exact
           path="/manage-event"
           render={() => {
             return <ManageEvents />;
+          }}
+        />
+        <Route
+          exact
+          path="/:id"
+          render={routerProps => {
+            return <Event match={routerProps.match} />;
           }}
         />
       </Switch>
