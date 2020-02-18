@@ -2,7 +2,6 @@ import React from 'react';
 import './ManageEvents.css';
 
 function ManageEvents() {
-
   const postNewEvent = data => {
     const url = 'http://localhost:3001/events';
 
@@ -37,9 +36,8 @@ function ManageEvents() {
     data.category = event.target['category'].value;
 
     postNewEvent(data);
-    // this.history.pushState('/ibcc');
+    window.location.href = 'http://localhost:3000';
   };
-
 
   return (
     <div className="postEvent">
