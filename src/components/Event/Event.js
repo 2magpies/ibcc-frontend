@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Jumbotron, Button } from 'react-bootstrap';
+import "./Event.css"
+import moment from 'moment'
 
 function Event(props) {
   const { match } = props;
@@ -21,15 +24,19 @@ function Event(props) {
 
   return (
     <>
-      <div className="Event">
-        <h1>{event.name}</h1>
-        <h2>
-          {event.date}
-          {event.time}
-        </h2>
-        <p>{event.location}</p>
-        <p>{event.price}</p>
-        <img src={event.imageUrl} alt={event.name} />
+      <Jumbotron style={{ background: `url(${event.imageUrl}) no-repeat` }}>
+        <div className="eventInfo">
+          <h1>{event.name}</h1>
+          <h2>
+            <p>{moment(event.date).format('ddd, MMM Do YYYY')}</p>
+            <p>{event.location}</p>
+          </h2>
+          <p>
+            <Button variant="primary">Buy Tickets (${event.price})</Button>
+          </p>
+        </div>
+      </Jumbotron>
+      <div className="eventDescription">
         <p>{event.description}</p>
       </div>
     </>
