@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Results(props) {
   const { newResults } = props;
@@ -11,7 +12,9 @@ function Results(props) {
     <div className="results">
       {newResults.map(event => (
         <div key={event._id} className="event">
-          <p>{event.name}</p>
+          <Link to={`/${event._id}`}>
+            <p>{event.name}</p>
+          </Link>
         </div>
       ))}
     </div>

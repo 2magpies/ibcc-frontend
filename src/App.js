@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header/Header';
 import Results from './components/Results/Results';
+import Event from './components/Event/Event';
 import ManageEvents from './components//ManageEvents/ManageEvents';
 import ManageUser from './components//ManageUser/ManageUser';
 import BrowseAll from './components/BrowseAll/BrowseAll';
@@ -87,6 +88,12 @@ function App() {
           path={`/results/${lastSearch}`}
           render={() => {
             return <Results lastSearch={lastSearch} newResults={newResults} />;
+          }}
+        />
+        <Route
+          path="/:id"
+          render={routerProps => {
+            return <Event match={routerProps.match} />;
           }}
         />
         <Route
