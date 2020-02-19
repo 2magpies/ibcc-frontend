@@ -140,39 +140,34 @@ function ManageEvents(props) {
         </Form>
       </div>
 
-      <Jumbotron>
-        <Row className="eventGrid">
-          {events.map(event => (
-            <div key={event._id}>
-              <Col className="event">
-                <img src={event.imageUrl} alt="event" />
-                <div className="eventDetails">
-                  <Row>
-                    <Col>
-                      <h5>{event.name}</h5>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <Button
-                        href="/manage-events/delete"
-                        variant="outline-info"
-                      >
-                        Edit
-                      </Button>
-                    </Col>
-                    <Col>
-                      <Button variant="outline-danger">
-                        <Link to={`/${event._id}/delete`}>Delete</Link>
-                      </Button>
-                    </Col>
-                  </Row>
-                </div>
-              </Col>
-            </div>
-          ))}
-        </Row>
-      </Jumbotron>
+      <div className="eventGrid">
+        {events.map(event => (
+          <div key={event._id}>
+            <Col className="event">
+              <img src={event.imageUrl} alt="event" />
+              <div className="eventDetails">
+                <Row>
+                  <Col>
+                    <h5>{event.name}</h5>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Button href="/manage-events/delete" variant="outline-info">
+                      Edit
+                    </Button>
+                  </Col>
+                  <Col>
+                    <Button variant="outline-danger">
+                      <Link to={`/${event._id}/delete`}>Delete</Link>
+                    </Button>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+          </div>
+        ))}
+      </div>
     </>
   );
 }
