@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ManageEvents.css';
-import { Form, Col, InputGroup, Button, Row, Jumbotron } from 'react-bootstrap';
+import { Form, Col, InputGroup, Button, Row } from 'react-bootstrap';
 
 function ManageEvents(props) {
   const { events } = props;
@@ -153,8 +153,8 @@ function ManageEvents(props) {
                 </Row>
                 <Row>
                   <Col>
-                    <Button href="/manage-events/delete" variant="outline-info">
-                      Edit
+                    <Button variant="outline-info">
+                      <Link to={`/${event._id}/edit`}> Edit</Link>
                     </Button>
                   </Col>
                   <Col>
