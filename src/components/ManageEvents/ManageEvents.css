@@ -9,3 +9,9 @@
   min-width: 50vw;
 }
 
+.eventGrid{
+  display: flex;
+  flex-direction: row;
+  
+}
+

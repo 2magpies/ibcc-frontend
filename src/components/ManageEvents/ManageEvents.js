@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ManageEvents.css';
-import { Form, Col, InputGroup, Button, Row } from 'react-bootstrap';
+import { Form, Col, InputGroup, Button, Row, Jumbotron } from 'react-bootstrap';
 
 function ManageEvents(props) {
   const { events } = props;
@@ -15,7 +15,7 @@ function ManageEvents(props) {
     data.timezone = event.target['timezone'].value;
     data.description = event.target['description'].value;
     data.price = event.target['price'].value;
-    data.imageURL = event.target['imageURL'].value;
+    data.imageURL = event.target['imageUrl'].value;
     data.category = event.target['category'].value;
 
     postNewEvent(data);
@@ -32,7 +32,6 @@ function ManageEvents(props) {
     })
       .then(response => {
         response.json();
-
       })
       .then(data => {
         console.log('Success:', data);
@@ -42,7 +41,6 @@ function ManageEvents(props) {
         console.error('Error:', error);
       });
   };
-
 
   return (
     <>
@@ -141,36 +139,41 @@ function ManageEvents(props) {
           </Button>
         </Form>
       </div>
-      <Row className="eventGrid">
-        {events.map(event => (
-          <div key={event._id}>
-            <Col className="event">
-              <img src={event.imageUrl} alt="event" />
-              <div className="eventDetails">
-                <Row>
-                  <Col>
-                    <h5>{event.name}</h5>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <Button href="/manage-events/delete" variant="outline-info">
-                      Edit
-                    </Button>
-                  </Col>
-                  <Col>
-                    <Button variant="outline-danger">
-                      <Link to={`/${event._id}/delete`}>Delete</Link>
-                    </Button>
-                  </Col>
-                </Row>
-              </div>
-            </Col>
-          </div>
-        ))}
-      </Row>
-    </>
 
+      <Jumbotron>
+        <Row className="eventGrid">
+          {events.map(event => (
+            <div key={event._id}>
+              <Col className="event">
+                <img src={event.imageUrl} alt="event" />
+                <div className="eventDetails">
+                  <Row>
+                    <Col>
+                      <h5>{event.name}</h5>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Button
+                        href="/manage-events/delete"
+                        variant="outline-info"
+                      >
+                        Edit
+                      </Button>
+                    </Col>
+                    <Col>
+                      <Button variant="outline-danger">
+                        <Link to={`/${event._id}/delete`}>Delete</Link>
+                      </Button>
+                    </Col>
+                  </Row>
+                </div>
+              </Col>
+            </div>
+          ))}
+        </Row>
+      </Jumbotron>
+    </>
   );
 }
 
