@@ -62,35 +62,22 @@ function Header(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Tab.Container
-            // id="left-tabs-example"
-            defaultActiveKey="first"
-          >
+          <Tab.Container defaultActiveKey="first">
             <Row>
-              <Nav variant="" className="flex-row">
-                <Col sm={7}>
-                  <Nav.Item>
+              <Nav fill variant="tabs" className="flex-row">
+                <Col sm={100}>
+                  <Nav.Item className="nav">
                     <Nav.Link eventKey="first">Sign Up</Nav.Link>
                   </Nav.Item>
                 </Col>
-                <Col sm={7}>
-                  <Nav.Item>
+                <Col sm={100}>
+                  <Nav.Item className="nav">
                     <Nav.Link eventKey="second">Login</Nav.Link>
                   </Nav.Item>
                 </Col>
               </Nav>
             </Row>
             <Row>
-              {/* <Col sm={3}> */}
-              {/* <Nav variant="pills" className="flex-column">
-                  <Nav.Item>
-                    <Nav.Link eventKey="first">Sign Up</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="second">Login</Nav.Link>
-                  </Nav.Item> */}
-              {/* </Nav> */}
-              {/* </Col> */}
               <Col sm={9}>
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
@@ -142,9 +129,9 @@ function Header(props) {
                             name="email"
                           />
                         </Form.Group>
-                        <Form.Group controlId="formBasicCheckbox">
+                        {/* <Form.Group controlId="formBasicCheckbox">
                           <Form.Check type="checkbox" label="Admin" />
-                        </Form.Group>
+                        </Form.Group> */}
                         <Button variant="primary" type="submit">
                           Submit
                         </Button>
@@ -173,7 +160,7 @@ function Header(props) {
           searchString={searchString}
           lastSearch={lastSearch}
         />
-        <Nav.Link href='/manage-event'>Post an Event</Nav.Link>
+        <Nav.Link href="/manage-event">Post an Event</Nav.Link>
         <DropdownButton alignRight title="Settings" id="dropdownMenu">
           <Dropdown.Item eventKey="1" href="/manage-event">
             Manage Events
