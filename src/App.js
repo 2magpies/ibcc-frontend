@@ -19,7 +19,9 @@ function App() {
 
   useEffect(() => {
     getEvents(searchString);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, []);
 
   const url = 'http://ibcc.herokuapp.com/events';
@@ -55,11 +57,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header
+   <Header
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         searchString={searchString}
         lastSearch={lastSearch}
+
       />
 
       <Switch>
@@ -89,7 +92,6 @@ function App() {
           }}
         />
         <Route
-          exact
           path="/manage-event"
           render={() => {
             return <ManageEvents events={events} />;

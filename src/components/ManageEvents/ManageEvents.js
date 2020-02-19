@@ -32,7 +32,7 @@ function ManageEvents(props) {
     })
       .then(response => {
         response.json();
-        // console.log(response.json())
+
       })
       .then(data => {
         console.log('Success:', data);
@@ -43,18 +43,6 @@ function ManageEvents(props) {
       });
   };
 
-  // const deleteEvent = (event) =>{
-  //   		fetch(`http://ibcc.herokuapp.com/events/${event}`, {
-  //         method: 'DELETE',
-  //         headers: {
-  //           'Content-Type': 'application/json'
-  //         }
-  //       }).then(response =>
-  //         response.json().then(json => {
-  //           console.log(json);
-  //         })
-  //       );
-  // }
 
   return (
     <>
@@ -182,6 +170,7 @@ function ManageEvents(props) {
         ))}
       </Row>
     </>
+
   );
 }
 

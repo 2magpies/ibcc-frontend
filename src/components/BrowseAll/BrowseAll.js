@@ -8,6 +8,7 @@ function BrowseAll(props) {
   const { events } = props;
   return (
     <>
+
       <Jumbotron>
         <h1>Hello, world!</h1>
         <p>
@@ -35,6 +36,7 @@ function BrowseAll(props) {
             </Card>
           ))}
         </CardColumns>
+
       </div>
     </>
   );
