@@ -13,7 +13,7 @@ class RSVP extends React.Component {
     };
     this.handleTicketsChange = this.handleTicketsChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.sendEmail = this.sendEmail.bind(this);
   }
 
   handleTicketsChange(event) {
@@ -24,7 +24,7 @@ class RSVP extends React.Component {
     this.setState({ to_name: event.target.value });
   }
 
-  handleSubmit(event) {
+  sendEmail(event) {
     const templateId = 'template_pvU2ZiYC';
 
     this.sendTickets(templateId, {
@@ -75,7 +75,7 @@ class RSVP extends React.Component {
           <Button
             type="Submit"
             className="btn btn--submit"
-            onClick={this.handleSubmit}
+            onClick={this.sendEmail}
           >
             Submit
           </Button>
