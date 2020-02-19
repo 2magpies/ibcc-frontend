@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
@@ -31,20 +31,3 @@ function Search(props) {
 }
 
 export default Search;
-
-{
-  /* <form onSubmit={handleSubmit} className="form-horizontal">
-      <input
-        placeholder="Search events"
-        type="text"
-        name="searchString"
-        required
-        onChange={handleChange}
-        value={searchString}
-      />
-      <button type="submit" onClick={handleRedirect}>
-        Submit
-      </button>
-      {redirect && <Redirect to={`/results/${lastSearch}`} />}
-    </form> */
-}
