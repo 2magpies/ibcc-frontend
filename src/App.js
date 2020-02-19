@@ -7,6 +7,7 @@ import Event from './components/Event/Event';
 import ManageEvents from './components//ManageEvents/ManageEvents';
 import ManageUser from './components//ManageUser/ManageUser';
 import BrowseAll from './components/BrowseAll/BrowseAll';
+import Delete from './components/ManageEvents/Delete';
 
 import './App.css';
 
@@ -91,7 +92,14 @@ function App() {
           exact
           path="/manage-event"
           render={() => {
-            return <ManageEvents />;
+            return <ManageEvents events={events} />;
+          }}
+        />
+        <Route
+          exact
+          path="/:id/delete"
+          render={routerProps => {
+            return <Delete match={routerProps.match} />;
           }}
         />
         <Route
