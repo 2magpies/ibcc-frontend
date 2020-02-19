@@ -41,9 +41,13 @@ function Event(props) {
       <div className="eventDescription">
         <p>{event.description}</p>
       </div>
-      <div className="map">
-        <Map />
-        <RSVP />
+      <div className="mapRsvpContainer">
+        <div className="rsvp">
+          <RSVP />
+        </div>
+        <div className="map">
+          <Map />
+        </div>
       </div>
     </>
   );

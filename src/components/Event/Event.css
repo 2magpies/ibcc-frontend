@@ -13,5 +13,16 @@
 }
 
 .map {
+    width: 50vw;
+}
+
+.mapRsvpContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.rsvp {
     width: 40vw;
 }
