@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Button } from 'react-bootstrap';
-import "./Event.css"
-import moment from 'moment'
+import './Event.css';
+import moment from 'moment';
 
 function Event(props) {
   const { match } = props;
@@ -24,7 +24,7 @@ function Event(props) {
 
   return (
     <>
-      <Jumbotron style={{ background: `url(${event.imageUrl}) no-repeat` }}>
+      <Jumbotron style={{ background: `url(${event.imageUrl}) ` }}>
         <div className="eventInfo">
           <h1>{event.name}</h1>
           <h2>
