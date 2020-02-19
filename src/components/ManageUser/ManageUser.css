@@ -1,37 +1,40 @@
 .postUser {
-    display: flex;
-    flex-direction: column;	
-  background: rgb(197, 195, 195);
-  border: 2px solid black;
+  /* display: flex;
+    flex-direction: column;	 */
+  /* background: rgb(197, 195, 195); */
+  border: 2px solid rgb(189, 178, 178);
   border-radius: 3%;
   height: 50vh;
   width: 40vw;
-  margin: 5% 30%;
-}	
-
+  margin: 5% 3%;
+}
 
 .userDetails {
-   padding: 0% 10%;
-   padding-bottom: 0;
-   text-align: center;
-   font-size: 2rem;
-   margin: auto 5%;
+  padding: 0% 10%;
+  padding-bottom: 0;
+  text-align: center;
+  font-size: 2rem;
+  margin: auto 5%;
 }
 
 .userDetails input {
-    font-size: larger;
+  font-size: larger;
 }
 
-.userNameField{
-    padding: 2%;
+.userNameField {
+  padding: 2%;
 }
 
-.emailField{
-    margin-top: 5%;
+.emailField {
+  margin-top: 5%;
 }
 
 .userDetails button {
-    border-radius: 3%;
-    font-size: 2rem;
-    margin-top: 20%;
-} 
+  border-radius: 3%;
+  font-size: 2rem;
+  margin-top: 20%;
+}
+
+.userList {
+  display: flex;
+}
