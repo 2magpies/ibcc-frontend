@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header/Header';
-import Search from './components/Search/Search';
 import Results from './components/Results/Results';
+import Event from './components/Event/Event';
 import ManageEvents from './components//ManageEvents/ManageEvents';
 import ManageUser from './components//ManageUser/ManageUser';
 import BrowseAll from './components/BrowseAll/BrowseAll';
+import Delete from './components/ManageEvents/Delete';
 
 import './App.css';
 
@@ -17,10 +19,12 @@ function App() {
 
   useEffect(() => {
     getEvents(searchString);
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, []);
 
-  const url = 'http://localhost:3001/events';
+  const url = 'http://ibcc.herokuapp.com/events';
 
   function getEvents(searchString) {
     fetch(url)
@@ -35,15 +39,17 @@ function App() {
 
   function handleChange(event) {
     setSearchString(event.target.value);
+    setResults([]);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
+
     const searchedResults = events.filter(
       result =>
         (result !== undefined &&
           result.name.toLowerCase().includes(searchString.toLowerCase())) ||
-        result.name.toLowerCase().includes(searchString.toLowerCase())
+        result.location.toLowerCase().includes(searchString.toLowerCase())
     );
     setResults(searchedResults);
     getEvents(searchString);
@@ -51,11 +57,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Search
+   <Header
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         searchString={searchString}
+        lastSearch={lastSearch}
+
       />
 
       <Switch>
@@ -87,7 +94,21 @@ function App() {
         <Route
           path="/manage-event"
           render={() => {
-            return <ManageEvents />;
+            return <ManageEvents events={events} />;
+          }}
+        />
+        <Route
+          exact
+          path="/:id/delete"
+          render={routerProps => {
+            return <Delete match={routerProps.match} />;
+          }}
+        />
+        <Route
+          exact
+          path="/:id"
+          render={routerProps => {
+            return <Event match={routerProps.match} />;
           }}
         />
       </Switch>
