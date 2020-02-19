@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Jumbotron, Button } from 'react-bootstrap';
 import './Event.css';
 import moment from 'moment';
+import Map from '../Map/Map'
 
 function Event(props) {
   const { match } = props;
@@ -38,6 +39,9 @@ function Event(props) {
       </Jumbotron>
       <div className="eventDescription">
         <p>{event.description}</p>
+      </div>
+      <div className="map">
+      <Map />
       </div>
     </>
   );

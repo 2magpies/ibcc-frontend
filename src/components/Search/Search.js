@@ -31,20 +31,3 @@ function Search(props) {
 }
 
 export default Search;
-
-{
-  /* <form onSubmit={handleSubmit} className="form-horizontal">
-      <input
-        placeholder="Search events"
-        type="text"
-        name="searchString"
-        required
-        onChange={handleChange}
-        value={searchString}
-      />
-      <button type="submit" onClick={handleRedirect}>
-        Submit
-      </button>
-      {redirect && <Redirect to={`/results/${lastSearch}`} />}
-    </form> */
-}

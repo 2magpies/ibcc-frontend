@@ -11,3 +11,7 @@
 .jumbotron {
     margin-bottom: 0;
 }
+
+.map {
+    width: 40vw;
+}
