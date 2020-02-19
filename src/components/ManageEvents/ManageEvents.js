@@ -15,7 +15,7 @@ function ManageEvents(props) {
     data.timezone = event.target['timezone'].value;
     data.description = event.target['description'].value;
     data.price = event.target['price'].value;
-    data.imageURL = event.target['imageUrl'].value;
+    data.imageUrl = event.target['imageUrl'].value;
     data.category = event.target['category'].value;
 
     postNewEvent(data);
@@ -132,7 +132,7 @@ function ManageEvents(props) {
           </Form.Group>
           <Form.Group>
             <Form.Label>Image Url</Form.Label>
-            <Form.Control type="text" name="imageURL" />
+            <Form.Control type="text" name="imageUrl" />
           </Form.Group>
           <Button variant="outline-success" type="submit">
             Submit
