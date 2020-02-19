@@ -1,5 +1,10 @@
-.postEvent{
-display: flex;
-flex-direction: column;
+.postEvent {
+  border: 1px solid black;
+  border-radius: 2%;
+  box-shadow: 0px 5px 5px grey;
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  margin: 2vh 20vw;
+  min-width: 50vw;
 }
-
