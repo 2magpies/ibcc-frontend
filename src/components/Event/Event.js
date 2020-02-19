@@ -43,7 +43,7 @@ function Event(props) {
       </div>
       <div className="mapRsvpContainer">
         <div className="rsvp">
-          <RSVP />
+          <RSVP event={event.name} />
         </div>
         <div className="map">
           <Map />
