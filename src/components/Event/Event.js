@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Jumbotron, Button } from 'react-bootstrap';
 import './Event.css';
 import moment from 'moment';
-import Map from '../Map/Map'
+import Map from '../Map/Map';
+import RSVP from '../RSVP/RSVP';
 
 function Event(props) {
   const { match } = props;
@@ -41,7 +42,8 @@ function Event(props) {
         <p>{event.description}</p>
       </div>
       <div className="map">
-      <Map />
+        <Map />
+        <RSVP />
       </div>
     </>
   );

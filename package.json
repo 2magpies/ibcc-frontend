@@ -10,6 +10,7 @@
     "bootstrap": "^4.4.1",
     "google-map-react": "^1.1.6",
     "moment": "^2.24.0",
+    "nodemailer": "^6.4.2",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
