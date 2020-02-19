@@ -5,13 +5,13 @@ import { Card, CardColumns, Container } from 'react-bootstrap';
 //import './App.css';
 import './ManageUser.css';
 
-function BrowseUsers() {
-  const url = 'http://ibcc.herokuapp.com/users';
-  const [users, setUser] = useState(null);
+function BrowseUsers({ match }) {
+  const [users, setUser] = useState([]);
   const [deleted, setDeleted] = useState(false);
   const [error, setError] = useState(false);
 
-  useEffect(() => {
+  useEffect( => {
+    const url = 'http://ibcc.herokuapp.com/users';
     fetch(url)
       .then(response => response.json())
       .then(response => {
@@ -24,7 +24,7 @@ function BrowseUsers() {
   }
 
   const deleteUser = event => {
-    const url = `http://ibcc.herokuapp.com/manage-user/${users._id}`;
+    const url = `http://ibcc.herokuapp.com/users/${match.params._id}`;
     fetch(url, { method: 'DELETE' })
       .then(res => {
         setDeleted(true);
@@ -35,14 +35,10 @@ function BrowseUsers() {
     return <Redirect to="/manage-user" />;
   }
 
-  // Check if there was an error
-  // If there is give the user feedback!
   if (error) {
     return <div>Sorry, there was a problem getting the user list</div>;
   }
 
-  // Check if we have our users
-  // Display "Loading..." if not
   if (!users) {
     return <div>Loading...</div>;
   }

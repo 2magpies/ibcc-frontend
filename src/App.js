@@ -7,6 +7,7 @@ import Event from './components/Event/Event';
 import ManageEvents from './components//ManageEvents/ManageEvents';
 import ManageUser from './components//ManageUser/ManageUser';
 import BrowseAll from './components/BrowseAll/BrowseAll';
+import BrowseUsers from './components/ManageUser/BrowseUsers';
 import Delete from './components/ManageEvents/Delete';
 
 import './App.css';
@@ -20,8 +21,7 @@ function App() {
   useEffect(() => {
     getEvents(searchString);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const url = 'http://ibcc.herokuapp.com/events';
@@ -57,12 +57,11 @@ function App() {
 
   return (
     <div className="App">
-   <Header
+      <Header
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         searchString={searchString}
         lastSearch={lastSearch}
-
       />
 
       <Switch>
@@ -102,6 +101,13 @@ function App() {
           path="/:id/delete"
           render={routerProps => {
             return <Delete match={routerProps.match} />;
+          }}
+        />
+        <Route
+          exact
+          path="/:id/browse-users"
+          render={routerProps => {
+            return <BrowseUsers match={routerProps.match} />;
           }}
         />
         <Route
