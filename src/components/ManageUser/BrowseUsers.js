@@ -9,7 +9,6 @@ import {
   Col
 } from 'react-bootstrap';
 import DeleteUser from './DeleteUser';
-
 import './ManageUser.css';
 
 function BrowseUsers() {
@@ -31,7 +30,7 @@ function BrowseUsers() {
 
   return (
     <>
-      <Container className="userList">
+      <Container className="col-2-3" className="browseUser">
         <div className="userGrid">
           <CardColumns>
             {users.map(user => (
