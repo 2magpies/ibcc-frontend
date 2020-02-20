@@ -6,12 +6,12 @@ function Edit(props) {
   const { match } = props;
   const [event, setEvent] = useState([]);
 
-  useEffect(() => {
-    getEvent();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const url = `http://ibcc.herokuapp.com/events/${match.params.id}`;
+
+  useEffect(() => {
+    getEvent()
+  }, [])
+
 
   function getEvent() {
     fetch(url)
@@ -21,13 +21,15 @@ function Edit(props) {
       })
       .catch(console.error);
   }
-
+  
+  
   const handleSubmit = e => {
     e.preventDefault();
-    
+    console.log(e);
+
     let data = {};
 
-    data.name = event.target['name'].value;
+    data.name = event.target.name.value;
     // data.date = event.target['date'].value;
     // data.time = event.target['time'].value;
     // data.timezone = event.target['timezone'].value;
@@ -63,12 +65,13 @@ function Edit(props) {
 
   return (
     <div className="postEvent">
-      <Form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <Form.Row>
           <Col>
             <Form.Group controlId="forName">
-              <Form.Label>Name</Form.Label>
-              <Form.Control type="text" placeholder={event.name} name="name" />
+              <Form.Label>Name: </Form.Label>
+              {event.name}
+              <Form.Control type="text" placeholder="Enter Text" name="name" />
             </Form.Group>
           </Col>
           <Col>
@@ -156,7 +159,7 @@ function Edit(props) {
         <Button variant="outline-success" type="submit">
           Submit
         </Button>
-      </Form>
+      </form>
     </div>
   );
 }
