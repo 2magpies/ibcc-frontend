@@ -17,6 +17,7 @@ function ManageUser() {
       .then(response => response.json())
       .then(userData => {
         console.log('Success:', userData);
+        window.location.href = 'https://gatherupapp.herokuapp.com/manage-user';
       })
       .catch(error => {
         console.error('Error', error);
