@@ -45,11 +45,13 @@ nav li {
 #dropdownMenu {
   background-color: transparent;
   border: none;
-  color: white
+  color: white;
 }
 
 #dropdownMenu:hover {
-  border: none;
+   border-top: white solid 1px;
+  border-bottom: white solid 1px;
+  border-radius: 0%;
 }
 
 #dropdownMenu:focus {
@@ -57,7 +59,23 @@ nav li {
   box-shadow: none;
 }
 
+#loginButton {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+#loginButton:hover {
+  border-top: white solid 1px;
+  border-bottom: white solid 1px;
+  border-radius: 0%;
+}
+
+#loginButton:focus {
+  border: none;
+  box-shadow: none;
+}
+
 #logo {
   max-height: 10vh;
 }
-

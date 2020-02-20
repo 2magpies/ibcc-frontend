@@ -94,20 +94,20 @@ function Header(props) {
         <Modal.Body>
           <Tab.Container defaultActiveKey="first">
             <Row>
-              <Nav fill variant="tabs" className="flex-row">
+              <Nav fill variant="tabs" className="flex-row" >
                 <Col sm={100}>
                   <Nav.Item className="nav">
-                    <Nav.Link eventKey="first">Sign Up</Nav.Link>
+                    <Nav.Link eventKey="first" style={{ padding: "1rem" }}>Sign Up</Nav.Link>
                   </Nav.Item>
                 </Col>
                 <Col sm={100}>
                   <Nav.Item className="nav">
-                    <Nav.Link eventKey="second">Login</Nav.Link>
+                    <Nav.Link eventKey="second" style={{ padding: "1rem" }}>Login</Nav.Link>
                   </Nav.Item>
                 </Col>
               </Nav>
             </Row>
-            <Row>
+            <Row style={{ margin: "1rem 0 0 0" }}>
               <Col sm={9}>
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
@@ -222,9 +222,7 @@ function Header(props) {
           </DropdownButton>
         )}
         {!storedUser && (
-          <Button variant="outline-primary" onClick={() => setModalShow(true)}>
-            Login
-          </Button>
+          <Button id="loginButton" onClick={() => setModalShow(true)}>Login</Button>
         )}
         <CenteredModal show={modalShow} onHide={() => setModalShow(false)} />
       </Navbar>
