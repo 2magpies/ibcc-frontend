@@ -5,8 +5,6 @@ import { Form, Col, InputGroup, Button, Row, Card } from 'react-bootstrap';
 
 function ManageEvents(props) {
   const { events } = props;
-  const storedAdmin = useState(localStorage.getItem('storedAdmin'));
-
   const handleSubmit = event => {
     event.preventDefault();
 
