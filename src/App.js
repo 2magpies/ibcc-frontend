@@ -9,6 +9,7 @@ import ManageUser from './components//ManageUser/ManageUser';
 import BrowseAll from './components/BrowseAll/BrowseAll';
 import BrowseUsers from './components/ManageUser/BrowseUsers';
 import Delete from './components/ManageEvents/Delete';
+import Edit from './components/ManageEvents/Edit';
 
 import './App.css';
 
@@ -105,11 +106,16 @@ function App() {
         />
         <Route
           exact
-          path="/:id/browse-users"
+          path="/:id/edit"
           render={routerProps => {
-            return <BrowseUsers match={routerProps.match} />;
+            return <Edit match={routerProps.match} />;
           }}
         />
+
+
+        <Route exact path="/:id/browse-users"
+          render={routerProps => {
+            return <BrowseUsers match={routerProps.match} />}}/>;
         <Route
           exact
           path="/:id"
