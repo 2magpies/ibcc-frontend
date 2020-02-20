@@ -46,12 +46,12 @@ function BrowseUsers() {
                 <Row>
                   <Col>
                     <Button variant="outline-info">
-                      <Link to={`/${user._id}/edit`}> Edit</Link>
+                      <Link to={`/${user._id}/edituser`}> Edit</Link>
                     </Button>
                   </Col>
                   <Col>
                     <Button variant="outline-danger">
-                      <Link to={`/${user._id}/delete`}>Delete</Link>
+                      <Link to={`/${user._id}/deleteuser`}>Delete</Link>
                     </Button>
                   </Col>
                 </Row>

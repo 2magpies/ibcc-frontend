@@ -1,37 +1,54 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Container, Form, Col, Row } from 'react-bootstrap';
+import { Button, Container, Form, Col } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 
-function EditUser(props) {
-  const { match } = props;
-
+function EditUser({ match }) {
   const [user, setUser] = useState([]);
+  const [error, setError] = useState(false);
+  const [createdId, setCreatedId] = useState(null);
 
   useEffect(() => {
-    getUser();
-  }, []);
-
-  const url = `http://ibcc.herokuapp.com/users/${user._id}`;
-
-  function getUser() {
+    const url = `http://ibcc.herokuapp.com/users/${match.params.id}`;
     fetch(url)
       .then(response => response.json())
-      .then(response => {
-        setUser(response);
+      .then(data => {
+        setUser({ name: data.name, title: data.title });
       })
-      .catch(console.error);
-  }
+      .catch(() => {
+        setError(true);
+      });
+  }, []);
+
+  const handleChange = event => {
+    event.persist();
+    setUser({
+      ...user,
+      [event.target.name]: event.target.value
+    });
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    let data = {};
-
-    data.name = user.target['name'].value;
-
-    const updateUser = data => {
-      console.log('fetch PUT reached');
-    };
+    const url = 'http://ibcc.herokuapp.com/users/';
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+      },
+      body: JSON.stringify(user)
+    })
+      .then(response => response.json())
+      .then(data => {
+        setCreatedId(data._id);
+      })
+      .catch(() => {
+        setError(true);
+      });
   };
+
+  if (createdId) {
+    return <Redirect to={`/users/${createdId}`} />;
+  }
 
   return (
     <div>
@@ -40,7 +57,12 @@ function EditUser(props) {
           <Form.Row>
             <Form.Group as={Col} controlId="formGrid">
               <Form.Label>First Name</Form.Label>
-              <Form.Control type="text" placeholder={user.name} name="name" />
+              <Form.Control
+                type="text"
+                placeholder={user.name}
+                name="name"
+                onChange={handleChange}
+              />
             </Form.Group>
           </Form.Row>
           <Form.Row>
@@ -48,6 +70,7 @@ function EditUser(props) {
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
+                onChange={handleChange}
                 placeholder={user.email}
                 name="email"
               />
@@ -67,3 +90,49 @@ function EditUser(props) {
 }
 
 export default EditUser;
+
+// function EditUser() {
+//   const [user, setUser] = useState([]);
+
+//   useEffect(() => {
+//     getUser();
+//   }, []);
+
+//   const url = `http://ibcc.herokuapp.com/users/${user._id}`;
+
+//   function getUser() {
+//     fetch(url)
+//       .then(response => response.json())
+//       .then(response => {
+//         setUser(response);
+//       })
+//       .catch(console.error);
+//   }
+//   const handleSubmit = e => {
+//     e.preventDefault();
+
+//     let data = {};
+
+//     data.name = user.target['name'].value;
+
+//     const updateUser = data => {
+//       console.log('fetch PUT reached');
+//       fetch(url, {
+//         method: 'PUT',
+//         headers: {
+//           'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//       })
+//         .then(response => {
+//           response.json();
+//         })
+//         .then(data => {
+//           console.log('Success:', data);
+//           window.location.href = 'http://localhost:3000';
+//         })
+//         .catch(error => {
+//           console.error('Error:', error);
+//         });
+//     };
+//   };
