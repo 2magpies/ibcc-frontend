@@ -33,14 +33,12 @@ function ManageUser() {
     let userData = {};
     userData.name = event.target['name'].value;
     userData.email = event.target['email'].value;
-    // userData.city = event.target['city'].value;
-    // userData.state = event.target['state'].value;
-
+    
     postNewUser(userData);
   };
   return (
     <div>
-      <Container className="postUser">
+      <Container className="postUser" className="col-1-4">
         <Form onSubmit={handleSubmit}>
           <Form.Row>
             <Form.Group as={Col} controlId="formGrid">
@@ -51,11 +49,6 @@ function ManageUser() {
                 name="name"
               />
             </Form.Group>
-
-            {/* <Form.Group as={Col} controlId="formGrid">
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control />
-          </Form.Group> */}
           </Form.Row>
 
           <Form.Row>
@@ -67,27 +60,7 @@ function ManageUser() {
                 name="email"
               />
             </Form.Group>
-
-            {/* <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group> */}
           </Form.Row>
-
-          {/* <Form.Row>
-          <Form.Group as={Col} controlId="formGridCity">
-            <Form.Label>City</Form.Label>
-            <Form.Control />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridState">
-            <Form.Label>State</Form.Label>
-            <Form.Control as="select" value="Choose...">
-              <option>Choose...</option>
-              <option>...</option>
-            </Form.Control>
-          </Form.Group>
-          </Form.Row> */}
 
           <Form.Group id="formGridCheckbox">
             <Form.Check type="checkbox" label="Admin" />

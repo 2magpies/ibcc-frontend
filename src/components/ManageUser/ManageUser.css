@@ -1,10 +1,23 @@
+/* Base Styles */
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: var(--black);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+
 .postUser {
   /* display: flex;
     flex-direction: column;	 */
   /* background: rgb(197, 195, 195); */
-  border: 2px solid rgb(189, 178, 178);
+  border: 2px solid #f42c04;
   border-radius: 3%;
-  height: 50vh;
+  height: 30vh;
   width: 40vw;
   margin: 5% 3%;
 }
@@ -38,3 +51,4 @@
 .userList {
   display: flex;
 }
+
