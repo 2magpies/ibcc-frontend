@@ -7,7 +7,9 @@ import Event from './components/Event/Event';
 import ManageEvents from './components//ManageEvents/ManageEvents';
 import ManageUser from './components//ManageUser/ManageUser';
 import BrowseAll from './components/BrowseAll/BrowseAll';
-import BrowseUsers from './components/ManageUser/BrowseUsers';
+import EditUser from './components/ManageUser/EditUser';
+import DeleteUser from './components/ManageUser/DeleteUser';
+
 import Delete from './components/ManageEvents/Delete';
 import Edit from './components/ManageEvents/Edit';
 
@@ -39,7 +41,7 @@ function App() {
   }
 
   function handleChange(event) {
-    event.preventDefault()
+    event.preventDefault();
     setSearchString(event.target.value);
     setResults([]);
   }
@@ -112,11 +114,20 @@ function App() {
             return <Edit match={routerProps.match}  />;
           }}
         />
-
-
-        <Route exact path="/:id/browse-users"
+        <Route
+          exact
+          path="/:id/edituser"
           render={routerProps => {
-            return <BrowseUsers match={routerProps.match} />}}/>;
+            return <EditUser match={routerProps.match} />;
+          }}
+        />
+        <Route
+          exact
+          path="/:id/deleteuser"
+          render={routerProps => {
+            return <DeleteUser match={routerProps.match} />;
+          }}
+        />
         <Route
           exact
           path="/:id"

@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Card, CardColumns, Container } from 'react-bootstrap';
+import {
+  Card,
+  CardColumns,
+  Container,
+  Button,
+  Row,
+  Col
+} from 'react-bootstrap';
+import DeleteUser from './DeleteUser';
 
-//import './App.css';
 import './ManageUser.css';
 
-function BrowseUsers({ match }) {
+function BrowseUsers() {
   const [users, setUser] = useState([]);
-  const [deleted, setDeleted] = useState(false);
-  const [error, setError] = useState(false);
 
 
   useEffect( () => {
@@ -24,29 +29,10 @@ function BrowseUsers({ match }) {
     return null;
   }
 
-  const deleteUser = event => {
-    const url = `http://ibcc.herokuapp.com/users/${match.params.id}`;
-    // fetch(url, { method: 'DELETE' }).then(res => {
-    //   setDeleted(true);
-    // });
-    console.log(match);
-  };
-  if (deleted) {
-    return <Redirect to="/manage-user" />;
-  }
-
-  if (error) {
-    return <div>Sorry, there was a problem getting the user list</div>;
-  }
-
-  if (!users) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <>
       <Container className="userList">
-        <div className="eventGrid">
+        <div className="userGrid">
           <CardColumns>
             {users.map(user => (
               <Card key={user._id}>
@@ -58,7 +44,18 @@ function BrowseUsers({ match }) {
                     </Card.Text>
                   </Card.Body>
                 </Link>
-                <button onClick={deleteUser}>Delete</button>
+                <Row>
+                  <Col>
+                    <Button variant="outline-info">
+                      <Link to={`/${user._id}/edituser`}> Edit</Link>
+                    </Button>
+                  </Col>
+                  <Col>
+                    <Button variant="outline-danger">
+                      <Link to={`/${user._id}/deleteuser`}>Delete</Link>
+                    </Button>
+                  </Col>
+                </Row>
               </Card>
             ))}
           </CardColumns>
