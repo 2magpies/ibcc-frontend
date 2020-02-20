@@ -1,5 +1,7 @@
 # GatherUp Events
 
+**GatherUp!** can be experienced at [Link to GatherUp's deployed frontend](https://gatherupapp.herokuapp.com/)
+
 ## Project Description
 
 ![Screen Shot 2020-02-20 at 4 27 53 PM](https://user-images.githubusercontent.com/56045956/74985866-f75b2b80-53fd-11ea-9aa0-578873ea3c34.png)
@@ -14,7 +16,8 @@ GatherUp allows the user to browse events by name or genre, see their location a
 
 ## Wireframes
 
-image
+![Home](/public/images/home.png)
+![Manage Events](/public/images/manageevents.png)
 
 image
 
@@ -34,14 +37,14 @@ image
 
 #### Future Stretch Goals
 
--As a user I would like to see my events on the map.
--As a user, I would like to be able to upload images directly to the database.
+- As a user I would like to see my events on the map.
+- As a user, I would like to be able to upload images directly to the database.
 
 ## Technologies
 
 Written with React and CSS Flexbox using React Bootstrap and React Router.
 
-API- (https://ibcc.herokuapp.com/events)
+API: (https://ibcc.herokuapp.com/events)
 
 ## Component Hierarchy
 
