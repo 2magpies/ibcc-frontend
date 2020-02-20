@@ -195,9 +195,9 @@ function Header(props) {
 
   return (
     <>
-      <Navbar bg="light" variant="light" className="navbar">
+      <Navbar variant="light" id="navbar">
         <Navbar.Brand href="/">
-          <img src="/images/gup-logo2.png" alt="GatherUp!" className="logo" />
+          <img src="/images/gup-logo2.png" alt="GatherUp!" id="logo" />
         </Navbar.Brand>
         <Search
           handleChange={handleChange}
@@ -205,7 +205,6 @@ function Header(props) {
           searchString={searchString}
           lastSearch={lastSearch}
         />
-        <Nav.Link href="/manage-event">Post an Event</Nav.Link>
         {storedUser && (
           <DropdownButton alignRight title={storedUser} id="dropdownMenu">
             <Dropdown.Item eventKey="1" href="/manage-event">

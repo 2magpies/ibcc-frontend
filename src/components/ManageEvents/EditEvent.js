@@ -32,6 +32,7 @@ function Edit(props) {
     data.date = event.target['date'].value;
     data.time = event.target['time'].value;
     data.timezone = event.target['timezone'].value;
+    data.location = event.target['location'].value;
     data.description = event.target['description'].value;
     data.price = event.target['price'].value;
     data.imageUrl = event.target['imageUrl'].value;
@@ -185,9 +186,11 @@ function Edit(props) {
           <Button variant="outline-success" type="submit">
             Submit
           </Button>
+          <Button id="deleteEventButton" onClick={deleteEvent}>Delete Event</Button>
         </form>
+        
       </div>
-      <Button onClick={deleteEvent}>Delete Event</Button>
+      
     </>
   );
 }
