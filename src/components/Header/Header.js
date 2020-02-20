@@ -64,7 +64,7 @@ function Header(props) {
     setStoredUser(event.target['name'].value);
     setStoredEmail(event.target['email'].value);
     if (event.target['admin'].value) {
-      if (event.target['admin'].value === 'ittybitty') {
+      if (event.target['admin'].value === process.env.REACT_APP_ADMIN) {
         localStorage.setItem('storedAdmin', event.target['admin'].value);
         setStoredAdmin(event.target['admin'].value);
       }
