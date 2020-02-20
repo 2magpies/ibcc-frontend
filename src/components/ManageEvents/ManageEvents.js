@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ManageEvents.css';
-import { Form, Col, InputGroup, Button, Row } from 'react-bootstrap';
+import { Form, Col, InputGroup, Button, Row, Card } from 'react-bootstrap';
 
 function ManageEvents(props) {
   const { events } = props;
@@ -142,30 +142,39 @@ function ManageEvents(props) {
 
       <div className="eventGrid">
         {events.map(event => (
-          <div key={event._id}>
+          <Card style={{width: '20rem'}} key={event._id}>
             <Col className="event">
-              <img src={event.imageUrl} alt="event" />
+              <Card.Img variant="top" src={event.imageUrl} alt="event" />
               <div className="eventDetails">
-                <Row>
-                  <Col>
-                    <h5>{event.name}</h5>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <Button variant="outline-info">
-                      <Link to={`/${event._id}/edit`}> Edit</Link>
-                    </Button>
-                  </Col>
-                  <Col>
-                    <Button variant="outline-danger">
-                      <Link to={`/${event._id}/delete`}>Delete</Link>
-                    </Button>
-                  </Col>
-                </Row>
+                <Card.Body>
+                  <Row>
+                    <Col>
+                      <Card.Title>{event.name}</Card.Title>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                    <Card.Text>
+                      {event.description}
+                    </Card.Text>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Button variant="outline-info">
+                        <Link to={`/${event._id}/edit`}> Edit</Link>
+                      </Button>
+                    </Col>
+                    <Col>
+                      <Button variant="outline-danger">
+                        <Link to={`/${event._id}/delete`}>Delete</Link>
+                      </Button>
+                    </Col>
+                  </Row>
+                </Card.Body>
               </div>
             </Col>
-          </div>
+          </Card>
         ))}
       </div>
     </>
