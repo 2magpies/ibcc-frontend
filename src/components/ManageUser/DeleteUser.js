@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 function DeleteUser(props) {
-  console.log(props);
+  // console.log(props);
 
   const { match } = props;
   const [user, setUser] = useState([]);
@@ -21,6 +21,7 @@ function DeleteUser(props) {
       })
       .catch(console.error);
   }
+  console.log(user);
 
   const handleSubmit = e => {
     e.preventDefault();

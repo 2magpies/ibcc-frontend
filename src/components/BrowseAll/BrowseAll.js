@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './BrowseAll.css';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
@@ -59,75 +59,98 @@ function BrowseAll(props) {
       </Jumbotron>
       <div id="browse">
         <ButtonToolbar>
-          <Button className="browseButtons" variant="outline-secondary" onClick={resetBrowse}>
+          <Button
+            className="browseButtons"
+            variant="outline-secondary"
+            onClick={resetBrowse}
+          >
             Browse All Events
           </Button>
-          <Button className="browseButtons" variant="outline-secondary" onClick={sportsBrowse}>
+          <Button
+            className="browseButtons"
+            variant="outline-secondary"
+            onClick={sportsBrowse}
+          >
             Sports
           </Button>
-          <Button className="browseButtons" variant="outline-secondary" onClick={musicBrowse}>
+          <Button
+            className="browseButtons"
+            variant="outline-secondary"
+            onClick={musicBrowse}
+          >
             Music
           </Button>
-          <Button className="browseButtons" variant="outline-secondary" onClick={festivalBrowse}>
+          <Button
+            className="browseButtons"
+            variant="outline-secondary"
+            onClick={festivalBrowse}
+          >
             Festivals
           </Button>
-          <Button className="browseButtons" variant="outline-secondary" onClick={activismBrowse}>
+          <Button
+            className="browseButtons"
+            variant="outline-secondary"
+            onClick={activismBrowse}
+          >
             Activism
           </Button>
-          <Button className="browseButtons" variant="outline-secondary" onClick={miscBrowse}>
+          <Button
+            className="browseButtons"
+            variant="outline-secondary"
+            onClick={miscBrowse}
+          >
             Other
           </Button>
         </ButtonToolbar>
+      </div>
+      {!browsed && (
+        <div className="eventGrid">
+          <CardColumns>
+            {events.map(event => (
+              <Card key={event._id}>
+                <Link to={`/${event._id}`}>
+                  <Card.Img
+                    variant="top"
+                    src={event.imageUrl}
+                    alt={event.name}
+                  />
+                  <Card.Body>
+                    <Card.Title>{event.name}</Card.Title>
+                    <Card.Text>
+                      <p>{moment(event.date).format('ddd, MMM Do YYYY')}</p>
+                      <p>{event.location}</p>
+                    </Card.Text>
+                  </Card.Body>
+                </Link>
+              </Card>
+            ))}
+          </CardColumns>
         </div>
-        {!browsed && (
-          <div className="eventGrid">
-            <CardColumns>
-              {events.map(event => (
-                <Card key={event._id}>
-                  <Link to={`/${event._id}`}>
-                    <Card.Img
-                      variant="top"
-                      src={event.imageUrl}
-                      alt={event.name}
-                    />
-                    <Card.Body>
-                      <Card.Title>{event.name}</Card.Title>
-                      <Card.Text>
-                        <p>{moment(event.date).format('ddd, MMM Do YYYY')}</p>
-                        <p>{event.location}</p>
-                      </Card.Text>
-                    </Card.Body>
-                  </Link>
-                </Card>
-              ))}
-            </CardColumns>
-          </div>
-        )}
-        {browsed !== undefined && (
-          <div className="eventGrid">
-            <CardColumns>
-              {browsed.map(event => (
-                <Card key={event._id}>
-                  <Link to={`/${event._id}`}>
-                    <Card.Img
-                      variant="top"
-                      src={event.imageUrl}
-                      alt={event.name}
-                    />
-                    <Card.Body>
-                      <Card.Title>{event.name}</Card.Title>
-                      <Card.Text>
-                        <p>{moment(event.date).format('ddd, MMM Do YYYY')}</p>
-                        <p>{event.location}</p>
-                      </Card.Text>
-                    </Card.Body>
-                  </Link>
-                </Card>
-              ))}
-            </CardColumns>
-          </div>
-        )}
-     
+      )}
+      {browsed !== undefined && (
+        <div className="eventGrid">
+          <CardColumns>
+            {browsed.map(event => (
+              <Card key={event._id}>
+                <Link to={`/${event._id}`}>
+                  <Card.Img
+                    variant="top"
+                    src={event.imageUrl}
+                    alt={event.name}
+                  />
+                  <Card.Body>
+                    <Card.Title>{event.name}</Card.Title>
+                    <Card.Text>
+                      <p>{moment(event.date).format('ddd, MMM Do YYYY')}</p>
+                      <p>{event.location}</p>
+                    </Card.Text>
+                  </Card.Body>
+                </Link>
+              </Card>
+            ))}
+          </CardColumns>
+        </div>
+      )}
     </>
   );
 }

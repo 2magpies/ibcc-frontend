@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardColumns,
@@ -8,14 +8,12 @@ import {
   Row,
   Col
 } from 'react-bootstrap';
-import DeleteUser from './DeleteUser';
 import './ManageUser.css';
 
 function BrowseUsers() {
   const [users, setUser] = useState([]);
 
-
-  useEffect( () => {
+  useEffect(() => {
     const url = 'http://ibcc.herokuapp.com/users';
     fetch(url)
       .then(response => response.json())
@@ -30,7 +28,7 @@ function BrowseUsers() {
 
   return (
     <>
-      <Container className="col-2-3" className="browseUser">
+      <Container className="col-2-3 browseUser">
         <div className="userGrid">
           <CardColumns>
             {users.map(user => (

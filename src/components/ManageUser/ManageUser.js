@@ -1,11 +1,6 @@
 import React from 'react';
 import './ManageUser.css';
-import {
-  Col,
-  Button,
-  Form,
-  Container
-} from 'react-bootstrap';
+import { Col, Button, Form, Container } from 'react-bootstrap';
 import BrowseUser from './BrowseUsers';
 
 function ManageUser() {
@@ -33,12 +28,13 @@ function ManageUser() {
     let userData = {};
     userData.name = event.target['name'].value;
     userData.email = event.target['email'].value;
-    
+
     postNewUser(userData);
   };
+
   return (
     <div>
-      <Container className="postUser" className="col-1-4">
+      <Container className="col-1-4 postUser">
         <Form onSubmit={handleSubmit}>
           <Form.Row>
             <Form.Group as={Col} controlId="formGrid">
