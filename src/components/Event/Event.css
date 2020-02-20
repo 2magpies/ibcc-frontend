@@ -4,8 +4,9 @@
 }
 
 .eventDescription {
-    border: 2px solid black;
+    background-color: rgb(211, 211, 211);
     padding: 2rem;
+    
 }
 
 .jumbotron {
@@ -25,4 +26,13 @@
 
 .rsvp {
     width: 40vw;
+}
+
+h5 {
+    text-decoration: underline;
+}
+
+#eventDetails{
+    background-color: black;
+    height: 100vh;
 }

@@ -46,14 +46,14 @@ class RSVP extends React.Component {
   render() {
     return (
       <>
-        <h1>Buy Tickets</h1>
         <Form className="test-mailing">
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Label>Email address</Form.Label>
             <Form.Control
               type="email"
               name="to_name"
-              placeholder="name@example.com"
+              value={localStorage.getItem('storedEmail') || ""}
+              placeholder="Enter email address"
               onChange={this.handleEmailChange}
             />
           </Form.Group>
