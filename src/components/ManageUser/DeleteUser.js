@@ -33,7 +33,7 @@ function DeleteUser(props) {
       .then(response => response.json())
       .then(response => {
         console.log(response);
-        // window.location.href = 'http://localhost:3000';
+        window.location.href = 'http://localhost:3000/manage-user';
       })
       .catch(console.error);
   };
