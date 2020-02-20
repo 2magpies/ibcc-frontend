@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Form, Col } from 'react-bootstrap';
 
-
-function EditUser({ match }) {
+function EditUser(props) {
+  const { match } = props;
   const [user, setUser] = useState([]);
 
   useEffect(() => {
     getUser();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const url = `http://ibcc.herokuapp.com/users/${match.params.id}`;
@@ -64,6 +64,30 @@ function EditUser({ match }) {
       });
   };
 
+  function getUser() {
+    fetch(url)
+      .then(response => response.json())
+      .then(response => {
+        setUser(response);
+      })
+      .catch(console.error);
+  }
+
+  const deleteUser = () => {
+    fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        window.location.href = 'http://localhost:3000/manage-user';
+      })
+      .catch(console.error);
+  };
+
   return (
     <div>
       <Container className="postUser">
@@ -89,6 +113,7 @@ function EditUser({ match }) {
           </Button>
         </Form>
       </Container>
+      <Button onClick={deleteUser}>Delete User</Button>
     </div>
   );
 }

@@ -8,10 +8,7 @@ import ManageEvents from './components//ManageEvents/ManageEvents';
 import ManageUser from './components//ManageUser/ManageUser';
 import BrowseAll from './components/BrowseAll/BrowseAll';
 import EditUser from './components/ManageUser/EditUser';
-import DeleteUser from './components/ManageUser/DeleteUser';
-
-import Delete from './components/ManageEvents/Delete';
-import Edit from './components/ManageEvents/Edit';
+import EditEvent from './components/ManageEvents/EditEvent';
 
 import './App.css';
 
@@ -103,16 +100,9 @@ function App() {
         />
         <Route
           exact
-          path="/:id/delete"
-          render={routerProps => {
-            return <Delete match={routerProps.match} />;
-          }}
-        />
-        <Route
-          exact
           path="/:id/edit"
           render={routerProps => {
-            return <Edit match={routerProps.match} />;
+            return <EditEvent match={routerProps.match} />;
           }}
         />
         <Route
@@ -120,13 +110,6 @@ function App() {
           path="/:id/edituser"
           render={routerProps => {
             return <EditUser match={routerProps.match} />;
-          }}
-        />
-        <Route
-          exact
-          path="/:id/deleteuser"
-          render={routerProps => {
-            return <DeleteUser match={routerProps.match} />;
           }}
         />
         <Route
