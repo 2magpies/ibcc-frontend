@@ -40,7 +40,7 @@ function DeleteUser(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>{user.name}</h1>
+      <h1>UserName</h1>
       <button type="submit">Delete</button>
     </form>
   );
