@@ -17,6 +17,10 @@ import {
 function Header(props) {
   const { handleSubmit, handleChange, searchString, lastSearch } = props;
   const [modalShow, setModalShow] = useState(false);
+  const [storedUser, setStoredUser] = useState(
+    localStorage.getItem('storedUserName') || ''
+  );
+  const [currentUser, setCurrentUser] = useState('');
 
   const postNewUser = data => {
     const url = 'http://ibcc.herokuapp.com/users';
@@ -46,6 +50,24 @@ function Header(props) {
     data.email = event.target['email'].value;
     postNewUser(data);
     setModalShow(false);
+    storeName(event);
+  };
+
+  const storeName = event => {
+    localStorage.setItem('storedUserName', currentUser);
+    event.preventDefault();
+    setStoredUser(currentUser);
+    setCurrentUser('');
+  };
+
+  const resetStoredName = event => {
+    localStorage.clear();
+    setStoredUser(event.target.value);
+  };
+
+  const changeUserName = event => {
+    event.preventDefault();
+    setCurrentUser(event.target.value);
   };
 
   function CenteredModal(props) {
@@ -83,16 +105,17 @@ function Header(props) {
                   <Tab.Pane eventKey="first">
                     <form onSubmit={registerUser}>
                       <Form>
-                        <Form.Group controlId="formBasicEmail">
+                        <Form.Group>
                           <Form.Label>Full Name</Form.Label>
                           <Form.Control
                             type="text"
                             placeholder="Enter your full name"
                             name="name"
+                            onChange={changeUserName}
                           />
                         </Form.Group>
 
-                        <Form.Group controlId="formBasicPassword">
+                        <Form.Group controlId="formBasicEmail">
                           <Form.Label>Email</Form.Label>
                           <Form.Control
                             type="text"
@@ -161,18 +184,25 @@ function Header(props) {
           lastSearch={lastSearch}
         />
         <Nav.Link href="/manage-event">Post an Event</Nav.Link>
-        <DropdownButton alignRight title="Settings" id="dropdownMenu">
-          <Dropdown.Item eventKey="1" href="/manage-event">
-            Manage Events
-          </Dropdown.Item>
-          <Dropdown.Item eventKey="2" href="/manage-user">
-            Manage Users
-          </Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item eventKey="4" onClick={() => setModalShow(true)}>
+        {storedUser && (
+          <DropdownButton alignRight title={storedUser} id="dropdownMenu">
+            <Dropdown.Item eventKey="1" href="/manage-event">
+              Manage Events
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="2" href="/manage-user">
+              Manage Users
+            </Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item eventKey="4" onClick={resetStoredName}>
+              Logout
+            </Dropdown.Item>
+          </DropdownButton>
+        )}
+        {!storedUser && (
+          <Button variant="outline-primary" onClick={() => setModalShow(true)}>
             Login
-          </Dropdown.Item>
-        </DropdownButton>
+          </Button>
+        )}
         <CenteredModal show={modalShow} onHide={() => setModalShow(false)} />
       </Navbar>
     </>
