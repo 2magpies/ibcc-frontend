@@ -23,7 +23,7 @@ function ManageEvents(props) {
   };
 
   const postNewEvent = data => {
-    const url = 'http://ibcc.herokuapp.com/events';
+    const url = 'https://ibcc.herokuapp.com/events';
     fetch(url, {
       method: 'POST',
       headers: {
@@ -36,7 +36,7 @@ function ManageEvents(props) {
       })
       .then(data => {
         console.log('Success:', data);
-        window.location.href = 'http://localhost:3000';
+        window.location.href = 'https://gatherupapp.herokuapp.com/';
       })
       .catch(error => {
         console.error('Error:', error);

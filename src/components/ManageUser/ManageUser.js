@@ -5,7 +5,7 @@ import BrowseUser from './BrowseUsers';
 
 function ManageUser() {
   const postNewUser = userData => {
-    const userUrl = 'http://ibcc.herokuapp.com/users';
+    const userUrl = 'https://ibcc.herokuapp.com/users';
 
     fetch(userUrl, {
       method: 'POST',

@@ -11,7 +11,7 @@ function Edit(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const url = `http://ibcc.herokuapp.com/events/${match.params.id}`;
+  const url = `https://ibcc.herokuapp.com/events/${match.params.id}`;
 
   function getEvent() {
     fetch(url)
@@ -63,7 +63,7 @@ function Edit(props) {
       })
       .then(data => {
         console.log('Success:');
-        window.location.href = 'http://localhost:3000/manage-event';
+        window.location.href = 'https://gatherupapp.herokuapp.com/manage-event';
       })
       .catch(error => {
         console.error('Error:', error);
@@ -80,7 +80,7 @@ function Edit(props) {
       .then(response => response.json())
       .then(response => {
         console.log(response);
-        window.location.href = 'http://localhost:3000/manage-event';
+        window.location.href = 'https://gatherupapp.herokuapp.com/manage-event';
       })
       .catch(console.error);
   };

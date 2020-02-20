@@ -14,7 +14,7 @@ function BrowseUsers() {
   const [users, setUser] = useState([]);
 
   useEffect(() => {
-    const url = 'http://ibcc.herokuapp.com/users';
+    const url = 'https://ibcc.herokuapp.com/users';
     fetch(url)
       .then(response => response.json())
       .then(response => {

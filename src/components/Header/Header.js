@@ -32,7 +32,7 @@ function Header(props) {
   const handleClick = () => setChecked(!checked);
 
   const postNewUser = data => {
-    const url = 'http://ibcc.herokuapp.com/users';
+    const url = 'https://ibcc.herokuapp.com/users';
 
     fetch(url, {
       method: 'POST',

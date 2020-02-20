@@ -25,7 +25,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const url = 'http://ibcc.herokuapp.com/events';
+  const url = 'https://ibcc.herokuapp.com/events';
 
   function getEvents(searchString) {
     fetch(url)

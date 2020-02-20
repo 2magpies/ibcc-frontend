@@ -10,7 +10,7 @@ function EditUser(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const url = `http://ibcc.herokuapp.com/users/${match.params.id}`;
+  const url = `https://ibcc.herokuapp.com/users/${match.params.id}`;
 
   function getUser() {
     fetch(url)
@@ -57,7 +57,7 @@ function EditUser(props) {
       })
       .then(data => {
         console.log('Success:');
-        window.location.href = 'http://localhost:3000/manage-user';
+        window.location.href = 'https://gatherupapp.herokuapp.com//manage-user';
       })
       .catch(error => {
         console.error('Error:', error);
@@ -83,7 +83,7 @@ function EditUser(props) {
       .then(response => response.json())
       .then(response => {
         console.log(response);
-        window.location.href = 'http://localhost:3000/manage-user';
+        window.location.href = 'https://gatherupapp.herokuapp.com//manage-user';
       })
       .catch(console.error);
   };
