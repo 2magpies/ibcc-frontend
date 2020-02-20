@@ -1,68 +1,66 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GatherUp Events
 
-## Available Scripts
+## Project Description
 
-In the project directory, you can run:
+![Screen Shot 2020-02-20 at 4 27 53 PM](https://user-images.githubusercontent.com/56045956/74985866-f75b2b80-53fd-11ea-9aa0-578873ea3c34.png)
 
-### `yarn start`
+![Screen Shot 2020-02-20 at 4 31 36 PM](https://user-images.githubusercontent.com/56045956/74986072-7b151800-53fe-11ea-947d-ba0fa3db81e7.png)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Screen Shot 2020-02-20 at 4 30 21 PM](https://user-images.githubusercontent.com/56045956/74985998-4d2fd380-53fe-11ea-9ffd-36aaabe97995.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![Screen Shot 2020-02-20 at 4 29 15 PM](https://user-images.githubusercontent.com/56045956/74985948-270a3380-53fe-11ea-8e2d-570c5932d2c9.png)
 
-### `yarn test`
+GatherUp allows the user to browse events by name or genre, see their location and details, add, edit, and delete local events, and receive an email for event tickets.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Wireframes
 
-### `yarn build`
+image
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+image
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## MVP User Stories
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### MVP User Stories
 
-### `yarn eject`
+- As a user, I want to find events in my area.
+- As a user, I would like to get more details about an event I will be attending.
+- As a user I would like to let the public know about the details of a public event I am promoting.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Post MVP Stretch Goals
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- As a user, I would like to implement user authorization.
+- As a user I would like to use onsite animation gif.
+- As a user, I want user RSVP emails for ticket requests.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Future Stretch Goals
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+-As a user I would like to see my events on the map.
+-As a user, I would like to be able to upload images directly to the database.
 
-## Learn More
+## Technologies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Written with React and CSS Flexbox using React Bootstrap and React Router.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+API- (https://ibcc.herokuapp.com/events)
 
-### Code Splitting
+## Component Hierarchy
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+![Screen Shot 2020-02-20 at 4 13 56 PM](https://user-images.githubusercontent.com/56045956/74984868-0214c100-53fc-11ea-87c1-dd874c7418c1.png)
 
-### Analyzing the Bundle Size
+## Get Started
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Fork and clone from the GitHub repository to your personal machine or visit the URL to search the repository.
 
-### Making a Progressive Web App
+## Contribution Guidelines
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+If you wish to contribute to this project, please open an issue to this repository.
 
-### Advanced Configuration
+## Created By
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Brendan Wilson [Brendan's GitHub](https://github.com/bwilson19)
 
-### Deployment
+Daphne Mintz [Daphne's GitHub](https://github.com/2magpies)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Myshawne Stallings [Myshawne's GitHub](https://github.com/Mysta3)
 
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Tiffany Huddleston [Tiffany's GitHub](https://github.com/tiffhuddleston)
