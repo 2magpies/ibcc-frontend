@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Col, InputGroup, Button } from 'react-bootstrap';
 import moment from 'moment';
+import Delete from './Delete';
 
 function Edit(props) {
   const { match } = props;
@@ -168,6 +169,7 @@ function Edit(props) {
           Submit
         </Button>
       </form>
+      <Delete />
     </div>
   );
 }

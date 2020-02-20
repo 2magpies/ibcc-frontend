@@ -36,20 +36,13 @@ function BrowseUsers() {
                 <Link to={`/${user._id}`}>
                   <Card.Body>
                     <Card.Title>{user.name}</Card.Title>
-                    <Card.Text>
-                      {user.email}
-                    </Card.Text>
+                    <Card.Text>{user.email}</Card.Text>
                   </Card.Body>
                 </Link>
                 <Row>
                   <Col>
                     <Button variant="outline-info">
                       <Link to={`/${user._id}/edituser`}> Edit</Link>
-                    </Button>
-                  </Col>
-                  <Col>
-                    <Button variant="outline-danger">
-                      <Link to={`/${user._id}/deleteuser`}>Delete</Link>
                     </Button>
                   </Col>
                 </Row>

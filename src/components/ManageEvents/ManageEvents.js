@@ -169,11 +169,7 @@ function ManageEvents(props) {
                         <Link to={`/${event._id}/edit`}> Edit</Link>
                       </Button>
                     </Col>
-                    <Col>
-                      <Button variant="outline-danger">
-                        <Link to={`/${event._id}/delete`}>Delete</Link>
-                      </Button>
-                    </Col>
+                    
                   </Row>
                 </Card.Body>
               </div>

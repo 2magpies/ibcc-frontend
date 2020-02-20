@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Form, Col } from 'react-bootstrap';
-
+import DeleteUser from './DeleteUser';
 
 function EditUser({ match }) {
   const [user, setUser] = useState([]);
 
   useEffect(() => {
     getUser();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const url = `http://ibcc.herokuapp.com/users/${match.params.id}`;
@@ -89,6 +89,7 @@ function EditUser({ match }) {
           </Button>
         </Form>
       </Container>
+      <DeleteUser />
     </div>
   );
 }
