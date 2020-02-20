@@ -15,6 +15,7 @@ import Edit from './components/ManageEvents/Edit';
 
 import './App.css';
 
+
 function App() {
   const [events, setEvents] = useState([]);
   const [searchString, setSearchString] = useState('');
@@ -136,6 +137,10 @@ function App() {
           }}
         />
       </Switch>
+
+      <div className="sticky">
+        <footer>Footer text</footer>
+      </div>
     </div>
   );
 }
