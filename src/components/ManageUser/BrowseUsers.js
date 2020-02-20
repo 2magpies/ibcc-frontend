@@ -37,7 +37,7 @@ function BrowseUsers() {
                   <Card.Body>
                     <Card.Title>{user.name}</Card.Title>
                     <Card.Text>
-                      <p>{user.email}</p>
+                      {user.email}
                     </Card.Text>
                   </Card.Body>
                 </Link>
