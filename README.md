@@ -19,8 +19,6 @@ GatherUp allows the user to browse events by name or genre, see their location a
 ![Home](/public/images/home.png)
 ![Manage Events](/public/images/manageevents.png)
 
-image
-
 ## MVP User Stories
 
 #### MVP User Stories
