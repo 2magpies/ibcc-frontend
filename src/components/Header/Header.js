@@ -26,7 +26,6 @@ function Header(props) {
   const [storedAdmin, setStoredAdmin] = useState(
     localStorage.getItem('storedAdmin') || ''
   );
-  const [verifiedAdmin, setVerifiedAdmin] = useState(false);
 
   // https://stackoverflow.com/questions/56356900/way-to-determine-checkbox-checked-in-react-usestate
   const [checked, setChecked] = useState(false);
@@ -64,10 +63,11 @@ function Header(props) {
     localStorage.setItem('storedEmail', event.target['email'].value);
     setStoredUser(event.target['name'].value);
     setStoredEmail(event.target['email'].value);
-    verifyAdmin();
-    if (checked === true) {
-      localStorage.setItem('storedAdmin', event.target['admin'].value);
-      setStoredAdmin(event.target['admin'].value);
+    if (event.target['admin'].value) {
+      if (event.target['admin'].value === 'ittybitty') {
+        localStorage.setItem('storedAdmin', event.target['admin'].value);
+        setStoredAdmin(event.target['admin'].value);
+      }
     }
   };
 
@@ -76,14 +76,6 @@ function Header(props) {
     setStoredUser();
     setStoredAdmin();
     setStoredEmail();
-  };
-
-  const verifyAdmin = () => {
-    if (storedAdmin === process.env.REACT_APP_ADMIN_KEY) {
-      setVerifiedAdmin(true);
-    } else {
-      setVerifiedAdmin(false);
-    }
   };
 
   function CenteredModal(props) {
@@ -217,7 +209,7 @@ function Header(props) {
             <Dropdown.Item eventKey="1" href="/manage-event">
               Manage Events
             </Dropdown.Item>
-            {verifiedAdmin && (
+            {storedAdmin && (
               <Dropdown.Item eventKey="2" href="/manage-user">
                 Manage Users
               </Dropdown.Item>
