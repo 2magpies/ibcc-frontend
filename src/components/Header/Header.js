@@ -20,6 +20,17 @@ function Header(props) {
   const [storedUser, setStoredUser] = useState(
     localStorage.getItem('storedUserName') || ''
   );
+  const [storedEmail, setStoredEmail] = useState(
+    localStorage.getItem('storedEmail') || ''
+  );
+  const [storedAdmin, setStoredAdmin] = useState(
+    localStorage.getItem('storedAdmin') || ''
+  );
+  const [verifiedAdmin, setVerifiedAdmin] = useState(false);
+
+  // https://stackoverflow.com/questions/56356900/way-to-determine-checkbox-checked-in-react-usestate
+  const [checked, setChecked] = useState(false);
+  const handleClick = () => setChecked(!checked);
 
   const postNewUser = data => {
     const url = 'http://ibcc.herokuapp.com/users';
@@ -50,12 +61,29 @@ function Header(props) {
     postNewUser(data);
     setModalShow(false);
     localStorage.setItem('storedUserName', event.target['name'].value);
+    localStorage.setItem('storedEmail', event.target['email'].value);
     setStoredUser(event.target['name'].value);
+    setStoredEmail(event.target['email'].value);
+    verifyAdmin();
+    if (checked === true) {
+      localStorage.setItem('storedAdmin', event.target['admin'].value);
+      setStoredAdmin(event.target['admin'].value);
+    }
   };
 
   const resetStoredName = event => {
     localStorage.clear();
     setStoredUser();
+    setStoredAdmin();
+    setStoredEmail();
+  };
+
+  const verifyAdmin = () => {
+    if (storedAdmin === process.env.REACT_APP_ADMIN_KEY) {
+      setVerifiedAdmin(true);
+    } else {
+      setVerifiedAdmin(false);
+    }
   };
 
   function CenteredModal(props) {
@@ -94,6 +122,14 @@ function Header(props) {
                     <form onSubmit={registerUser}>
                       <Form>
                         <Form.Group>
+                          <Form.Check
+                            type="checkbox"
+                            label="Admin"
+                            onClick={handleClick}
+                            checked={checked}
+                          />
+                        </Form.Group>
+                        <Form.Group>
                           <Form.Label>Full Name</Form.Label>
                           <Form.Control
                             type="text"
@@ -102,7 +138,7 @@ function Header(props) {
                           />
                         </Form.Group>
 
-                        <Form.Group controlId="formBasicEmail">
+                        <Form.Group>
                           <Form.Label>Email</Form.Label>
                           <Form.Control
                             type="text"
@@ -110,9 +146,16 @@ function Header(props) {
                             name="email"
                           />
                         </Form.Group>
-                        <Form.Group controlId="formBasicCheckbox">
-                          <Form.Check type="checkbox" label="Admin" />
-                        </Form.Group>
+                        {checked && (
+                          <Form.Group>
+                            <Form.Label>Admin Key</Form.Label>
+                            <Form.Control
+                              type="text"
+                              placeholder="Enter admin key"
+                              name="admin"
+                            />
+                          </Form.Group>
+                        )}
                         <Button variant="primary" type="submit">
                           Submit
                         </Button>
@@ -122,7 +165,7 @@ function Header(props) {
                   <Tab.Pane eventKey="second">
                     <form onSubmit={registerUser}>
                       <Form>
-                        <Form.Group controlId="formBasicEmail">
+                        <Form.Group>
                           <Form.Label>Full Name</Form.Label>
                           <Form.Control
                             type="text"
@@ -131,7 +174,7 @@ function Header(props) {
                           />
                         </Form.Group>
 
-                        <Form.Group controlId="formBasicPassword">
+                        <Form.Group>
                           <Form.Label>Email</Form.Label>
                           <Form.Control
                             type="text"
@@ -139,9 +182,7 @@ function Header(props) {
                             name="email"
                           />
                         </Form.Group>
-                        {/* <Form.Group controlId="formBasicCheckbox">
-                          <Form.Check type="checkbox" label="Admin" />
-                        </Form.Group> */}
+
                         <Button variant="primary" type="submit">
                           Submit
                         </Button>
@@ -163,7 +204,7 @@ function Header(props) {
   return (
     <>
       <Navbar bg="light" variant="light" className="navbar">
-        <Navbar.Brand href="/">IBCC</Navbar.Brand>
+        <Navbar.Brand href="/">GatherUp</Navbar.Brand>
         <Search
           handleChange={handleChange}
           handleSubmit={handleSubmit}
@@ -176,9 +217,11 @@ function Header(props) {
             <Dropdown.Item eventKey="1" href="/manage-event">
               Manage Events
             </Dropdown.Item>
-            <Dropdown.Item eventKey="2" href="/manage-user">
-              Manage Users
-            </Dropdown.Item>
+            {verifiedAdmin && (
+              <Dropdown.Item eventKey="2" href="/manage-user">
+                Manage Users
+              </Dropdown.Item>
+            )}
             <Dropdown.Divider />
             <Dropdown.Item eventKey="4" onClick={resetStoredName}>
               Logout
