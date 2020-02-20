@@ -10,7 +10,8 @@ function BrowseUsers({ match }) {
   const [deleted, setDeleted] = useState(false);
   const [error, setError] = useState(false);
 
-  useEffect(() => {
+
+  useEffect( () => {
     const url = 'http://ibcc.herokuapp.com/users';
     fetch(url)
       .then(response => response.json())

@@ -6,12 +6,12 @@ function Edit(props) {
   const { match } = props;
   const [event, setEvent] = useState([]);
 
+  const url = `http://ibcc.herokuapp.com/events/${match.params.id}`;
+
   useEffect(() => {
     getEvent();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const url = `http://ibcc.herokuapp.com/events/${match.params.id}`;
 
   function getEvent() {
     fetch(url)
@@ -22,52 +22,63 @@ function Edit(props) {
       .catch(console.error);
   }
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(event);
+
     let data = {};
 
     data.name = event.target['name'].value;
-    // data.date = event.target['date'].value;
-    // data.time = event.target['time'].value;
-    // data.timezone = event.target['timezone'].value;
-    // data.description = event.target['description'].value;
-    // data.price = event.target['price'].value;
-    // data.imageUrl = event.target['imageUrl'].value;
-    // data.category = event.target['category'].value;
+    data.date = event.target['date'].value;
+    data.time = event.target['time'].value;
+    data.timezone = event.target['timezone'].value;
+    data.description = event.target['description'].value;
+    data.price = event.target['price'].value;
+    data.imageUrl = event.target['imageUrl'].value;
+    data.category = event.target['category'].value;
     console.log(data);
 
-    // updateEvent(data);
+    for (var propName in data) {
+      if (
+        data[propName] === null ||
+        data[propName] === '' ||
+        data[propName] === undefined
+      ) {
+        delete data[propName];
+      }
+    }
+
+    updateEvent(data);
   };
 
   const updateEvent = data => {
-    console.log('fetch PUT reached');
-    // fetch(url, {
-    //   method: 'PUT',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(data)
-    // })
-    //   .then(response => {
-    //     response.json();
-    //   })
-    //   .then(data => {
-    //     console.log('Success:', data);
-    //     window.location.href = 'http://localhost:3000';
-    //   })
-    //   .catch(error => {
-    //     console.error('Error:', error);
-    //   });
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        response.json();
+      })
+      .then(data => {
+        console.log('Success:');
+        // window.location.href = 'http://localhost:3000';
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   };
 
   return (
     <div className="postEvent">
-      <Form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <Form.Row>
           <Col>
             <Form.Group controlId="forName">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Name: </Form.Label>
+
               <Form.Control type="text" placeholder={event.name} name="name" />
             </Form.Group>
           </Col>
@@ -156,7 +167,7 @@ function Edit(props) {
         <Button variant="outline-success" type="submit">
           Submit
         </Button>
-      </Form>
+      </form>
     </div>
   );
 }
