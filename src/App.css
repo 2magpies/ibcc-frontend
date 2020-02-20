@@ -8,22 +8,6 @@
   --white: #fff;
 }
 
-/* Base Styles */
-footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  
-}
-
-/* Layout Styles */
-.sticky {
-  position: relative;
-  min-height: 100vh;
-}
-
 /* Media Query EXCLUDES extra small devices and includes small and above */
 @media (min-width: 48em) {
   [class*='col-'] {
