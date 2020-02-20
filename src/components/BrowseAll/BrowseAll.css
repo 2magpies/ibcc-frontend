@@ -2,11 +2,13 @@
   background-image: url('./mainsearch.gif');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 25% 75%;;
+  background-position: 25% 75%;
 
   color: white;
   border-radius: 0%;
-  font-family: 'Abril Fatface', cursive;
+  font-family: 'Raleway';
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .browseButtons {

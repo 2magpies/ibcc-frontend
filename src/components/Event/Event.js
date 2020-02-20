@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Nav,
-  Row,
-  Col,
+
   Modal,
   Button,
-  Tab,
-  Form,
+  
   Jumbotron
 } from 'react-bootstrap';
 import './Event.css';
 import moment from 'moment';
-import Map from '../Map/Map';
 import RSVP from '../RSVP/RSVP';
 
 function Event(props) {
