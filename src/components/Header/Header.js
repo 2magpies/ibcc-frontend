@@ -196,7 +196,9 @@ function Header(props) {
   return (
     <>
       <Navbar bg="light" variant="light" className="navbar">
-        <Navbar.Brand href="/">GatherUp</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <img src="/images/gup-logo2.png" alt="GatherUp!" className="logo" />
+        </Navbar.Brand>
         <Search
           handleChange={handleChange}
           handleSubmit={handleSubmit}
