@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Form, Col } from 'react-bootstrap';
-import DeleteUser from './DeleteUser';
 
-function EditUser({ match }) {
+function EditUser(props) {
+  const { match } = props;
   const [user, setUser] = useState([]);
 
   useEffect(() => {
@@ -64,6 +64,30 @@ function EditUser({ match }) {
       });
   };
 
+  function getUser() {
+    fetch(url)
+      .then(response => response.json())
+      .then(response => {
+        setUser(response);
+      })
+      .catch(console.error);
+  }
+
+  const deleteUser = () => {
+    fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        window.location.href = 'http://localhost:3000/manage-user';
+      })
+      .catch(console.error);
+  };
+
   return (
     <div>
       <Container className="postUser">
@@ -89,7 +113,7 @@ function EditUser({ match }) {
           </Button>
         </Form>
       </Container>
-      <DeleteUser />
+      <Button onClick={deleteUser}>Delete User</Button>
     </div>
   );
 }
