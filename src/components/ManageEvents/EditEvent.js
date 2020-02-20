@@ -103,19 +103,17 @@ function Edit(props) {
             </Col>
             <Col>
               <Form.Group>
-                <label id="category" name="category">
-                  Category
-                </label>
-                <select id="category">
-                  <option value="" defaultValue>
-                    {event.category}
+                <Form.Label>Category</Form.Label>
+                <Form.Control as="select" name="category">
+                  <option value="" disabled defaultValue>
+                    Choose One
                   </option>
                   <option value="sports">Sports</option>
                   <option value="music">Music</option>
                   <option value="festival">Festival</option>
                   <option value="miscellaneous">Misc.</option>
                   <option value="activism">Activism</option>
-                </select>
+                </Form.Control>
               </Form.Group>
             </Col>
           </Form.Row>
@@ -140,18 +138,15 @@ function Edit(props) {
             </Col>
             <Col>
               <Form.Group>
-                <label name="timezone">Timezone</label>
-                <select id="timezone">
-                  <option value="" defaultValue>
-                    {event.timezone}
-                  </option>
+                <Form.Label>Time Zone:{event.timezone}</Form.Label>
+                <Form.Control as="select" name="timezone">
                   <option value="pst">PST</option>
                   <option value="cst">CST</option>
                   <option value="est">EST</option>
                   <option value="mst">MST</option>
                   <option value="hst">HST</option>
                   <option value="akst">AKST</option>
-                </select>
+                </Form.Control>
               </Form.Group>
             </Col>
           </Form.Row>
