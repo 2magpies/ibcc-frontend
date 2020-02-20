@@ -20,7 +20,6 @@ function Header(props) {
   const [storedUser, setStoredUser] = useState(
     localStorage.getItem('storedUserName') || ''
   );
-  const [currentUser, setCurrentUser] = useState('');
 
   const postNewUser = data => {
     const url = 'http://ibcc.herokuapp.com/users';
@@ -50,24 +49,13 @@ function Header(props) {
     data.email = event.target['email'].value;
     postNewUser(data);
     setModalShow(false);
-    storeName(event);
-  };
-
-  const storeName = event => {
-    localStorage.setItem('storedUserName', currentUser);
-    event.preventDefault();
-    setStoredUser(currentUser);
-    setCurrentUser('');
+    localStorage.setItem('storedUserName', event.target['name'].value);
+    setStoredUser(event.target['name'].value)
   };
 
   const resetStoredName = event => {
     localStorage.clear();
-    setStoredUser(event.target.value);
-  };
-
-  const changeUserName = event => {
-    event.preventDefault();
-    setCurrentUser(event.target.value);
+    setStoredUser();
   };
 
   function CenteredModal(props) {
@@ -111,7 +99,6 @@ function Header(props) {
                             type="text"
                             placeholder="Enter your full name"
                             name="name"
-                            onChange={changeUserName}
                           />
                         </Form.Group>
 

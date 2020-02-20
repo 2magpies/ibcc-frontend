@@ -39,6 +39,7 @@ function App() {
   }
 
   function handleChange(event) {
+    event.preventDefault()
     setSearchString(event.target.value);
     setResults([]);
   }
