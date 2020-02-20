@@ -1,6 +1,6 @@
 import React from 'react';
 import './ManageUser.css';
-import { Col, Button, Form, Container } from 'react-bootstrap';
+import { Col, Button, Form, Card } from 'react-bootstrap';
 import BrowseUser from './BrowseUsers';
 
 function ManageUser() {
@@ -34,41 +34,46 @@ function ManageUser() {
   };
 
   return (
-    <div>
-      <Container className="col-1-4 postUser">
-        <Form onSubmit={handleSubmit}>
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGrid">
-              <Form.Label>First Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter first name"
-                name="name"
-              />
+    <div id="manageUsers">
+      <div>
+        <h4>Add New User</h4>
+        <Card id="manageUserPost" style={{ width: '18rem', padding: '1rem' }}>
+          <Form onSubmit={handleSubmit}>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGrid">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter full name"
+                  name="name"
+                />
+              </Form.Group>
+            </Form.Row>
+
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email address"
+                  name="email"
+                />
+              </Form.Group>
+            </Form.Row>
+
+            <Form.Group id="formGridCheckbox">
+              <Form.Check type="checkbox" label="Admin" />
             </Form.Group>
-          </Form.Row>
 
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter email"
-                name="email"
-              />
-            </Form.Group>
-          </Form.Row>
-
-          <Form.Group id="formGridCheckbox">
-            <Form.Check type="checkbox" label="Admin" />
-          </Form.Group>
-
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </Container>
-      <BrowseUser />
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </Card>
+      </div>
+      <div>
+        <BrowseUser />
+      </div>
     </div>
   );
 }

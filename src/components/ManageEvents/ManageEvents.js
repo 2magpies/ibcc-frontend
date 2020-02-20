@@ -145,7 +145,7 @@ function ManageEvents(props) {
           </Button>
         </Form>
       </div>
-      <h3>Posted Events</h3>
+      <h3 id="postedEventsHeader">Posted Events</h3>
       <div className="eventGrid">
         {events.map(event => (
           <Card style={{ width: '20rem' }} key={event._id}>

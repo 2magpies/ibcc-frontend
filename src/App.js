@@ -40,12 +40,12 @@ function App() {
   function handleChange(event) {
     event.preventDefault();
     setSearchString(event.target.value);
-    setResults([]);
+    
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-
+    resetResults();
     const searchedResults = events.filter(
       result =>
         (result !== undefined &&
@@ -54,6 +54,11 @@ function App() {
     );
     setResults(searchedResults);
     getEvents(searchString);
+    
+  }
+
+  function resetResults (){
+    setResults([])
   }
 
   return (

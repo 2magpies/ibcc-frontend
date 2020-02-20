@@ -1,21 +1,4 @@
 /*  Base Styles */
-header {
-  color: black;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgb(255, 255, 255);
-  font-size: 0.7rem;
-  width: 100vw;
-  border-bottom: 3px solid rgb(54, 54, 54, 1);
-}
-
-img.logo {
-  width: 200px;
-}
 
 nav ul {
   list-style: none;
@@ -44,15 +27,25 @@ nav li {
   box-shadow: 10px 10px 100vw 100vw rgba(0, 0, 0, 0.7);
 }
 
-.navbar {
+#navbar {
   display: flex;
   justify-content: space-between;
+  color: black;
+  background-color: black;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  width: 100vw;
+  padding: 0 2rem;
 }
 
 #dropdownMenu {
   background-color: transparent;
   border: none;
-  color: blue;
+  color: white
 }
 
 #dropdownMenu:hover {
@@ -64,8 +57,7 @@ nav li {
   box-shadow: none;
 }
 
-.nav {
-  padding: 20px 20px 0;
-  /* background: #333; */
-  width: fit-content;
+#logo {
+  max-height: 10vh;
 }
+

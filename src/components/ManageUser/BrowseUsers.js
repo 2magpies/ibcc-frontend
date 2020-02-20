@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Card,
-  CardColumns,
-  Container,
-  Button,
-  Row,
-  Col
-} from 'react-bootstrap';
+import { ListGroup, Container, Button, Row, Col } from 'react-bootstrap';
 import './ManageUser.css';
 
 function BrowseUsers() {
@@ -28,16 +21,16 @@ function BrowseUsers() {
 
   return (
     <>
-      <Container className="col-2-3 browseUser">
+      <Container>
+        <h4>Active Users</h4>
         <div className="userGrid">
-          <CardColumns>
+          <ListGroup>
             {users.map(user => (
-              <Card key={user._id}>
+              <ListGroup.Item key={user._id}>
                 <Link to={`/${user._id}`}>
-                  <Card.Body>
-                    <Card.Title>{user.name}</Card.Title>
-                    <Card.Text>{user.email}</Card.Text>
-                  </Card.Body>
+                  <p>
+                    {user.name} ({user.email})
+                  </p>
                 </Link>
                 <Row>
                   <Col>
@@ -46,9 +39,9 @@ function BrowseUsers() {
                     </Button>
                   </Col>
                 </Row>
-              </Card>
+              </ListGroup.Item>
             ))}
-          </CardColumns>
+          </ListGroup>
         </div>
       </Container>
     </>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Container, Form, Col } from 'react-bootstrap';
+import { Button, Card, Form, Col } from 'react-bootstrap';
 
 function EditUser(props) {
   const { match } = props;
@@ -12,16 +12,7 @@ function EditUser(props) {
 
   const url = `https://ibcc.herokuapp.com/users/${match.params.id}`;
 
-  function getUser() {
-    fetch(url)
-      .then(response => response.json())
-      .then(response => {
-        setUser(response);
-        console.log(user);
-      })
-      .catch(console.error);
-  }
-  // console.log(user);
+ 
   const handleSubmit = event => {
     event.preventDefault();
 
@@ -44,7 +35,6 @@ function EditUser(props) {
   };
 
   const updateUser = data => {
-    console.log('fetch PUT reached');
     fetch(url, {
       method: 'PUT',
       headers: {
@@ -90,18 +80,19 @@ function EditUser(props) {
 
   return (
     <div>
-      <Container className="postUser">
+      <h4>Edit User</h4>
+      <Card style={{ width: '18rem', padding: '1rem' }}>
         <Form onSubmit={handleSubmit}>
           <Form.Row>
             <Form.Group as={Col} controlId="formGrid">
               <Form.Label>First Name</Form.Label>
-              <Form.Control type="text" placeholder="name" name="name" />
+              <Form.Control type="text" placeholder={user.name} name="name" />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="{email}" name="email" />
+              <Form.Control type="email" placeholder={user.email} name="email" />
             </Form.Group>
           </Form.Row>
           <Form.Group id="formGridCheckbox">
@@ -112,8 +103,8 @@ function EditUser(props) {
             Submit
           </Button>
         </Form>
-      </Container>
-      <Button onClick={deleteUser}>Delete User</Button>
+        <Button id="delete" onClick={deleteUser}>Delete User</Button>
+      </Card>
     </div>
   );
 }
