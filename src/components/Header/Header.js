@@ -50,7 +50,7 @@ function Header(props) {
     postNewUser(data);
     setModalShow(false);
     localStorage.setItem('storedUserName', event.target['name'].value);
-    setStoredUser(event.target['name'].value)
+    setStoredUser(event.target['name'].value);
   };
 
   const resetStoredName = event => {
