@@ -2,30 +2,32 @@ import React, { useEffect, useState } from 'react';
 import { Button, Container, Form, Col } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 
-function EditUser() {
+function EditUser({ match }) {
   const [user, setUser] = useState([]);
 
   useEffect(() => {
     getUser();
   }, []);
 
-  const url = `http://ibcc.herokuapp.com/users/${user._id}`;
+  const url = `http://ibcc.herokuapp.com/users/${match.params.id}`;
 
   function getUser() {
     fetch(url)
       .then(response => response.json())
       .then(response => {
         setUser(response);
+        console.log(user);
       })
       .catch(console.error);
   }
-  const handleSubmit = e => {
-    e.preventDefault();
+  // console.log(user);
+  const handleSubmit = event => {
+    event.preventDefault();
 
     let data = {};
 
-    data.name = user.target['name'].value;
-    data.email = user.target['email'].value;
+    data.name = event.target['name'].value;
+    data.email = event.target['email'].value;
 
     for (var propName in data) {
       if (
@@ -53,8 +55,8 @@ function EditUser() {
         response.json();
       })
       .then(data => {
-        console.log('Success:', data);
-        window.location.href = 'http://localhost:3000';
+        console.log('Success:');
+        window.location.href = 'http://localhost:3000/manage-user';
       })
       .catch(error => {
         console.error('Error:', error);
@@ -68,17 +70,13 @@ function EditUser() {
           <Form.Row>
             <Form.Group as={Col} controlId="formGrid">
               <Form.Label>First Name</Form.Label>
-              <Form.Control type="text" placeholder={user.name} name="name" />
+              <Form.Control type="text" placeholder="name" name="name" />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder={user.email}
-                name="email"
-              />
+              <Form.Control type="email" placeholder="{email}" name="email" />
             </Form.Group>
           </Form.Row>
           <Form.Group id="formGridCheckbox">
