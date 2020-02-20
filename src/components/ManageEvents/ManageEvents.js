@@ -13,6 +13,7 @@ function ManageEvents(props) {
     data.date = event.target['date'].value;
     data.time = event.target['time'].value;
     data.timezone = event.target['timezone'].value;
+    data.location = event.target['location'].value;
     data.description = event.target['description'].value;
     data.price = event.target['price'].value;
     data.imageUrl = event.target['imageUrl'].value;
@@ -60,10 +61,8 @@ function ManageEvents(props) {
             </Col>
             <Col>
               <Form.Group>
-                <label id="category" name="category">
-                  Category
-                </label>
-                <select id="category">
+                <Form.Label>Category</Form.Label>
+                <Form.Control as="select" name="category">
                   <option value="" disabled defaultValue>
                     Choose One
                   </option>
@@ -72,7 +71,7 @@ function ManageEvents(props) {
                   <option value="festival">Festival</option>
                   <option value="miscellaneous">Misc.</option>
                   <option value="activism">Activism</option>
-                </select>
+                </Form.Control>
               </Form.Group>
             </Col>
           </Form.Row>
@@ -95,19 +94,26 @@ function ManageEvents(props) {
             </Col>
             <Col>
               <Form.Group>
-                <label name="timezone">Timezone</label>
-                <select id="timezone">
+                <Form.Label>Time Zone</Form.Label>
+                <Form.Control as="select" name="timezone">
                   <option value="pst">PST</option>
                   <option value="cst">CST</option>
                   <option value="est">EST</option>
                   <option value="mst">MST</option>
                   <option value="hst">HST</option>
                   <option value="akst">AKST</option>
-                </select>
+                </Form.Control>
               </Form.Group>
             </Col>
           </Form.Row>
-
+          <Form.Group>
+            <Form.Label>Location</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter location of the event"
+              name="location"
+            />
+          </Form.Group>
           <Form.Group>
             <Form.Label>Description</Form.Label>
             <Form.Control
@@ -142,7 +148,7 @@ function ManageEvents(props) {
 
       <div className="eventGrid">
         {events.map(event => (
-          <Card style={{width: '20rem'}} key={event._id}>
+          <Card style={{ width: '20rem' }} key={event._id}>
             <Col className="event">
               <Card.Img variant="top" src={event.imageUrl} alt="event" />
               <div className="eventDetails">
@@ -154,9 +160,7 @@ function ManageEvents(props) {
                   </Row>
                   <Row>
                     <Col>
-                    <Card.Text>
-                      {event.description}
-                    </Card.Text>
+                      <Card.Text>{event.description}</Card.Text>
                     </Col>
                   </Row>
                   <Row>
