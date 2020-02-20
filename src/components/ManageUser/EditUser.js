@@ -24,8 +24,8 @@ function EditUser() {
 
     let data = {};
 
-    data.name = user.target['name'].value;
-    data.email = user.target['email'].value;
+    // data.name = user.target['name'].value;
+    // data.email = user.target['email'].value;
 
     for (var propName in data) {
       if (
@@ -54,7 +54,7 @@ function EditUser() {
       })
       .then(data => {
         console.log('Success:', data);
-        window.location.href = 'http://localhost:3000';
+        window.location.href = 'http://localhost:3000/manage-user';
       })
       .catch(error => {
         console.error('Error:', error);
