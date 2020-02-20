@@ -38,10 +38,10 @@ function ManageUser() {
         <Form onSubmit={handleSubmit}>
           <Form.Row>
             <Form.Group as={Col} controlId="formGrid">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>First Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter your name"
+                placeholder="Enter first name"
                 name="name"
               />
             </Form.Group>
