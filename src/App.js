@@ -111,7 +111,7 @@ function App() {
           exact
           path="/:id/edit"
           render={routerProps => {
-            return <Edit match={routerProps.match}  />;
+            return <Edit match={routerProps.match} />;
           }}
         />
         <Route
