@@ -25,27 +25,40 @@ function EditUser() {
     let data = {};
 
     data.name = user.target['name'].value;
+    data.email = user.target['email'].value;
 
-    const updateUser = data => {
-      console.log('fetch PUT reached');
-      fetch(url, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+    for (var propName in data) {
+      if (
+        data[propName] === null ||
+        data[propName] === '' ||
+        data[propName] === undefined
+      ) {
+        delete data[propName];
+      }
+    }
+
+    updateUser(data);
+  };
+
+  const updateUser = data => {
+    console.log('fetch PUT reached');
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        response.json();
       })
-        .then(response => {
-          response.json();
-        })
-        .then(data => {
-          console.log('Success:', data);
-          window.location.href = 'http://localhost:3000';
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    };
+      .then(data => {
+        console.log('Success:', data);
+        window.location.href = 'http://localhost:3000';
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   };
 
   return (
