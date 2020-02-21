@@ -38,7 +38,6 @@ nav li {
   color: rgba(255, 255, 255, 1);
 }
 
-
 #logo {
   max-height: 10vh;
 }
@@ -46,3 +45,5 @@ nav li {
 .navbar-collapse {
   flex-grow: 0;
 }
+
+

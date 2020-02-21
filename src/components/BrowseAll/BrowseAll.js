@@ -103,6 +103,30 @@ function BrowseAll(props) {
           </Button>
         </ButtonToolbar>
       </div>
+      {browsed !== undefined && (
+        <div className="eventGrid">
+          <CardColumns>
+            {browsed.map(event => (
+              <Card key={event._id} className="cardGlow">
+                <Link to={`/${event._id}`}>
+                  <Card.Img
+                    variant="top"
+                    src={event.imageUrl}
+                    alt={event.name}
+                  />
+                  <Card.Body>
+                    <Card.Title>{event.name}</Card.Title>
+                    <Card.Text>
+                      {moment(event.date).format('ddd, MMM Do YYYY')}
+                    </Card.Text>
+                    <Card.Text>{event.location}</Card.Text>
+                  </Card.Body>
+                </Link>
+              </Card>
+            ))}
+          </CardColumns>
+        </div>
+      )}
       {!browsed && (
         <div className="eventGrid">
           <CardColumns>
@@ -131,28 +155,4 @@ function BrowseAll(props) {
   );
 }
 
-// {browsed !== undefined && (
-//   <div className="eventGrid">
-//     <CardColumns>
-//       {browsed.map(event => (
-//         <Card key={event._id}>
-//           <Link to={`/${event._id}`}>
-//             <Card.Img
-//               variant="top"
-//               src={event.imageUrl}
-//               alt={event.name}
-//             />
-//             <Card.Body>
-//               <Card.Title>{event.name}</Card.Title>
-//               <Card.Text>
-//                 {moment(event.date).format('ddd, MMM Do YYYY')}
-//               </Card.Text>
-//               <Card.Text>{event.location}</Card.Text>
-//             </Card.Body>
-//           </Link>
-//         </Card>
-//       ))}
-//     </CardColumns>
-//   </div>
-// )}
 export default BrowseAll;
