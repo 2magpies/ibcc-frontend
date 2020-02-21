@@ -15,8 +15,8 @@
 GatherUp allows the user to browse events by name or genre, see their location and details, add, edit, and delete local events, and receive an email for event tickets.
 
 ## Wireframes
-
-![Home](/public/images/home.png)
+Basic wireframes represented the MVP features for the home page and a form view to support CRUD functionality. 
+![Home](/public/images/home.png)  
 ![Manage Events](/public/images/manageevents.png)
 
 ## MVP User Stories
