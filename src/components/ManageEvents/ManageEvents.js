@@ -148,7 +148,7 @@ function ManageEvents(props) {
       <h3 id="postedEventsHeader">Posted Events</h3>
       <div className="eventGrid">
         {events.map(event => (
-          <Card style={{ width: '20rem' }} key={event._id}>
+          <Card style={{ width: '20rem', marginBottom: '1rem '}} key={event._id}>
             <Col className="event">
               <Card.Img variant="top" src={event.imageUrl} alt="event" />
               <div className="eventDetails">

@@ -10,9 +10,9 @@ function Results(props) {
   return (
     <div id="resultsBox">
       <div id="resultsHeader">
-        <h5>
+        <h6>
           Found {newResults.length} results for '{lastSearch || 'all'}'
-        </h5>
+        </h6>
       </div>
       <div id="resultsGrid">
         <CardColumns>
