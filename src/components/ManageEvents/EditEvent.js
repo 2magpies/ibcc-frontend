@@ -1,32 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Col, InputGroup, Button } from 'react-bootstrap';
 import moment from 'moment';
-
 function Edit(props) {
   const { match } = props;
   const [event, setEvent] = useState([]);
-
   useEffect(() => {
     getEvent();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   const url = `https://ibcc.herokuapp.com/events/${match.params.id}`;
-
-  function getEvent() {
-    fetch(url)
-      .then(response => response.json())
-      .then(response => {
-        setEvent(response);
-      })
-      .catch(console.error);
-  }
-
   const handleSubmit = event => {
     event.preventDefault();
-
     let data = {};
-
     data.name = event.target['name'].value;
     data.date = event.target['date'].value;
     data.time = event.target['time'].value;
@@ -36,7 +21,6 @@ function Edit(props) {
     data.price = event.target['price'].value;
     data.imageUrl = event.target['imageUrl'].value;
     data.category = event.target['category'].value;
-
     for (var propName in data) {
       if (
         data[propName] === null ||
@@ -46,10 +30,8 @@ function Edit(props) {
         delete data[propName];
       }
     }
-
     updateEvent(data);
   };
-
   const updateEvent = data => {
     fetch(url, {
       method: 'PUT',
@@ -69,7 +51,14 @@ function Edit(props) {
         console.error('Error:', error);
       });
   };
-
+  function getEvent() {
+    fetch(url)
+      .then(response => response.json())
+      .then(response => {
+        setEvent(response);
+      })
+      .catch(console.error);
+  }
   const deleteEvent = event => {
     fetch(url, {
       method: 'DELETE',
@@ -84,16 +73,14 @@ function Edit(props) {
       })
       .catch(console.error);
   };
-
   return (
     <>
       <div className="postEvent">
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <Form.Row>
             <Col>
               <Form.Group controlId="forName">
                 <Form.Label>Name: </Form.Label>
-
                 <Form.Control
                   type="text"
                   placeholder={event.name}
@@ -150,7 +137,14 @@ function Edit(props) {
               </Form.Group>
             </Col>
           </Form.Row>
-
+          <Form.Group>
+            <Form.Label>Location</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder={event.location}
+              name="location"
+            />
+          </Form.Group>
           <Form.Group>
             <Form.Label>Description</Form.Label>
             <Form.Control
@@ -182,20 +176,15 @@ function Edit(props) {
               placeholder={event.imageUrl}
             />
           </Form.Group>
-          <Button
-            variant="outline-success"
-            onClick={handleSubmit}
-            type="submit"
-          >
+          <Button variant="outline-success" type="submit">
             Submit
           </Button>
           <Button id="deleteEventButton" onClick={deleteEvent}>
             Delete Event
           </Button>
-        </form>
+        </Form>
       </div>
     </>
   );
 }
-
 export default Edit;
