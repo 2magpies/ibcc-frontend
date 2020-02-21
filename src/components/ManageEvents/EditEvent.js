@@ -44,7 +44,6 @@ function Edit(props) {
         response.json();
       })
       .then(data => {
-        console.log('Success:');
         window.location.href = 'https://gatherupapp.herokuapp.com/manage-event';
       })
       .catch(error => {
@@ -68,7 +67,6 @@ function Edit(props) {
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response);
         window.location.href = 'https://gatherupapp.herokuapp.com/manage-event';
       })
       .catch(console.error);
