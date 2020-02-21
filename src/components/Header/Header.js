@@ -31,6 +31,8 @@ function Header(props) {
   const [checked, setChecked] = useState(false);
   const handleClick = () => setChecked(!checked);
 
+  const onChange = () => {};
+
   const postNewUser = data => {
     const url = 'https://ibcc.herokuapp.com/users';
 
@@ -94,30 +96,35 @@ function Header(props) {
         <Modal.Body>
           <Tab.Container defaultActiveKey="first">
             <Row>
-              <Nav fill variant="tabs" className="flex-row" >
+              <Nav fill variant="tabs" className="flex-row">
                 <Col sm={100}>
                   <Nav.Item className="nav">
-                    <Nav.Link eventKey="first" style={{ padding: "1rem" }}>Sign Up</Nav.Link>
+                    <Nav.Link eventKey="first" style={{ padding: '1rem' }}>
+                      Sign Up
+                    </Nav.Link>
                   </Nav.Item>
                 </Col>
                 <Col sm={100}>
                   <Nav.Item className="nav">
-                    <Nav.Link eventKey="second" style={{ padding: "1rem" }}>Login</Nav.Link>
+                    <Nav.Link eventKey="second" style={{ padding: '1rem' }}>
+                      Login
+                    </Nav.Link>
                   </Nav.Item>
                 </Col>
               </Nav>
             </Row>
-            <Row style={{ margin: "1rem 0 0 0" }}>
+            <Row style={{ margin: '1rem 0 0 0' }}>
               <Col sm={9}>
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
                     <form onSubmit={registerUser}>
-                      <Form>
+                      <>
                         <Form.Group>
                           <Form.Check
                             type="checkbox"
                             label="Admin"
                             onClick={handleClick}
+                            onChange={onChange}
                             checked={checked}
                           />
                         </Form.Group>
@@ -151,12 +158,12 @@ function Header(props) {
                         <Button variant="primary" type="submit">
                           Submit
                         </Button>
-                      </Form>
+                      </>
                     </form>
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">
                     <form onSubmit={registerUser}>
-                      <Form>
+                      <>
                         <Form.Group>
                           <Form.Label>Full Name</Form.Label>
                           <Form.Control
@@ -178,7 +185,7 @@ function Header(props) {
                         <Button variant="primary" type="submit">
                           Submit
                         </Button>
-                      </Form>
+                      </>
                     </form>
                   </Tab.Pane>
                 </Tab.Content>
@@ -222,7 +229,9 @@ function Header(props) {
           </DropdownButton>
         )}
         {!storedUser && (
-          <Button id="loginButton" onClick={() => setModalShow(true)}>Login</Button>
+          <Button id="loginButton" onClick={() => setModalShow(true)}>
+            Login
+          </Button>
         )}
         <CenteredModal show={modalShow} onHide={() => setModalShow(false)} />
       </Navbar>
