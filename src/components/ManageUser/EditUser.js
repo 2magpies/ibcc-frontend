@@ -12,7 +12,6 @@ function EditUser(props) {
 
   const url = `https://ibcc.herokuapp.com/users/${match.params.id}`;
 
- 
   const handleSubmit = event => {
     event.preventDefault();
 
@@ -85,14 +84,18 @@ function EditUser(props) {
         <Form onSubmit={handleSubmit}>
           <Form.Row>
             <Form.Group as={Col} controlId="formGrid">
-              <Form.Label>First Name</Form.Label>
+              <Form.Label>Name</Form.Label>
               <Form.Control type="text" placeholder={user.name} name="name" />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder={user.email} name="email" />
+              <Form.Control
+                type="email"
+                placeholder={user.email}
+                name="email"
+              />
             </Form.Group>
           </Form.Row>
           <Form.Group id="formGridCheckbox">
@@ -103,7 +106,9 @@ function EditUser(props) {
             Submit
           </Button>
         </Form>
-        <Button id="delete" onClick={deleteUser}>Delete User</Button>
+        <Button id="delete" onClick={deleteUser}>
+          Delete User
+        </Button>
       </Card>
     </div>
   );

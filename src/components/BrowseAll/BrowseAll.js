@@ -107,33 +107,7 @@ function BrowseAll(props) {
         <div className="eventGrid">
           <CardColumns>
             {events.map(event => (
-              <Card key={event._id}>
-                <Link to={`/${event._id}`}>
-                  <Card.Img
-                    variant="top"
-                    src={event.imageUrl}
-                    alt={event.name}
-                  />
-                  <Card.Body>
-                    <Card.Title>{event.name}</Card.Title>
-                    <Card.Text>
-                      {moment(event.date).format('ddd, MMM Do YYYY')}
-                      </Card.Text>
-                      <Card.Text>
-                      {event.location}
-                    </Card.Text>
-                  </Card.Body>
-                </Link>
-              </Card>
-            ))}
-          </CardColumns>
-        </div>
-      )}
-      {browsed !== undefined && (
-        <div className="eventGrid">
-          <CardColumns>
-            {browsed.map(event => (
-              <Card key={event._id}>
+              <Card key={event._id} className="cardGlow">
                 <Link to={`/${event._id}`}>
                   <Card.Img
                     variant="top"
@@ -145,9 +119,7 @@ function BrowseAll(props) {
                     <Card.Text>
                       {moment(event.date).format('ddd, MMM Do YYYY')}
                     </Card.Text>
-                    <Card.Text>
-                      {event.location}
-                    </Card.Text>
+                    <Card.Text>{event.location}</Card.Text>
                   </Card.Body>
                 </Link>
               </Card>
@@ -159,4 +131,28 @@ function BrowseAll(props) {
   );
 }
 
+// {browsed !== undefined && (
+//   <div className="eventGrid">
+//     <CardColumns>
+//       {browsed.map(event => (
+//         <Card key={event._id}>
+//           <Link to={`/${event._id}`}>
+//             <Card.Img
+//               variant="top"
+//               src={event.imageUrl}
+//               alt={event.name}
+//             />
+//             <Card.Body>
+//               <Card.Title>{event.name}</Card.Title>
+//               <Card.Text>
+//                 {moment(event.date).format('ddd, MMM Do YYYY')}
+//               </Card.Text>
+//               <Card.Text>{event.location}</Card.Text>
+//             </Card.Body>
+//           </Link>
+//         </Card>
+//       ))}
+//     </CardColumns>
+//   </div>
+// )}
 export default BrowseAll;

@@ -22,3 +22,16 @@
 #browse {
   padding: 1rem;
 }
+
+/* #browse:hover {
+  background-color: #;
+} */
+
+.cardGlow:hover {
+  filter: drop-shadow(4px 2px 10px var(--primary));
+}
+
+a:link {
+  text-decoration: none;
+  text: black;
+}

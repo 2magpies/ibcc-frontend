@@ -1,18 +1,28 @@
 #searchbar {
-  border-radius: 0;
+  border-radius: 0.2em;
   width: 70%;
+  background-color: #cfcdca;
+}
+
+#searchbar:hover {
+  background-color: var(--white);
 }
 
 #searchButton {
-    background-color: red;
-    border-color: darkred;
-    color: black;
-    border-radius: 0%;
-    width:30%;
+  background-color: none;
+  border-color: darkred;
+  border-width: 2px;
+  color: var(--white);
+  border-radius: 0.2em;
+  width: 30%;
+}
+
+#searchButton:hover {
+  background-color: var(--primary);
 }
 
 #searchContainer {
   width: 90%;
   margin-right: 5%;
-  margin-left: 5%
+  margin-left: 5%;
 }
