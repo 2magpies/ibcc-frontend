@@ -31,6 +31,8 @@ function Header(props) {
   const [checked, setChecked] = useState(false);
   const handleClick = () => setChecked(!checked);
 
+  const onChange = () => { };
+
   const postNewUser = data => {
     const url = 'https://ibcc.herokuapp.com/users';
 
@@ -116,12 +118,13 @@ function Header(props) {
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
                     <form onSubmit={registerUser}>
-                      <Form>
+                      <>
                         <Form.Group>
                           <Form.Check
                             type="checkbox"
                             label="Admin"
                             onClick={handleClick}
+                            onChange={onChange}
                             checked={checked}
                           />
                         </Form.Group>
@@ -155,12 +158,12 @@ function Header(props) {
                         <Button variant="primary" type="submit">
                           Submit
                         </Button>
-                      </Form>
+                      </>
                     </form>
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">
                     <form onSubmit={registerUser}>
-                      <Form>
+                      <>
                         <Form.Group>
                           <Form.Label>Full Name</Form.Label>
                           <Form.Control
@@ -182,7 +185,7 @@ function Header(props) {
                         <Button variant="primary" type="submit">
                           Submit
                         </Button>
-                      </Form>
+                      </>
                     </form>
                   </Tab.Pane>
                 </Tab.Content>
