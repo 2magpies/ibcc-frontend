@@ -61,10 +61,6 @@ function ManageUser() {
               </Form.Group>
             </Form.Row>
 
-            <Form.Group id="formGridCheckbox">
-              <Form.Check type="checkbox" label="Admin" />
-            </Form.Group>
-
             <Button variant="primary" type="submit">
               Submit
             </Button>
