@@ -52,9 +52,9 @@ class RSVP extends React.Component {
             <Form.Control
               type="email"
               name="to_name"
-              value={localStorage.getItem('storedEmail') || ""}
-              placeholder="Enter email address"
               onChange={this.handleEmailChange}
+              value={localStorage.getItem('storedEmail')}
+              placeholder="Enter email address"
             />
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlSelect1">

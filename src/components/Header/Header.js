@@ -66,7 +66,8 @@ function Header(props) {
     localStorage.setItem('storedEmail', event.target['email'].value);
     setStoredUser(event.target['name'].value);
     setStoredEmail(event.target['email'].value);
-    if (event.target['admin'].value) {
+
+    if (checked) {
       if (event.target['admin'].value === process.env.REACT_APP_ADMIN) {
         localStorage.setItem('storedAdmin', event.target['admin'].value);
         setStoredAdmin(event.target['admin'].value);
@@ -150,7 +151,7 @@ function Header(props) {
                           <Form.Group>
                             <Form.Label>Admin Key</Form.Label>
                             <Form.Control
-                              type="text"
+                              type="password"
                               placeholder="Enter admin key"
                               name="admin"
                             />
@@ -222,7 +223,7 @@ function Header(props) {
               <Nav.Link onClick={() => setModalShow(true)}>Login</Nav.Link>
             )}
             {storedUser && (
-              <NavDropdown title={storedUser} id="basic-nav-dropdown" >
+              <NavDropdown title={storedUser} id="basic-nav-dropdown">
                 <NavDropdown.Item href="/manage-event">
                   Manage Events
                 </NavDropdown.Item>

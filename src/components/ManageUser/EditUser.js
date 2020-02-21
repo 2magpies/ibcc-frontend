@@ -71,7 +71,6 @@ function EditUser(props) {
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response);
         window.location.href = 'https://gatherupapp.herokuapp.com/manage-user';
       })
       .catch(console.error);
