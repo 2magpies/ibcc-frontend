@@ -1,6 +1,6 @@
 #searchbar {
-  width: 30vw;
   border-radius: 0;
+  width: 70%;
 }
 
 #searchButton {
@@ -8,4 +8,11 @@
     border-color: darkred;
     color: black;
     border-radius: 0%;
+    width:30%;
+}
+
+#searchContainer {
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%
 }

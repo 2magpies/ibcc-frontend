@@ -28,54 +28,21 @@ nav li {
 }
 
 #navbar {
-  display: flex;
-  justify-content: space-between;
-  color: black;
   background-color: black;
-  text-align: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
-  font-size: 0.7rem;
-  width: 100vw;
-  padding: 0 2rem;
 }
 
-#dropdownMenu {
-  background-color: transparent;
-  border: none;
-  color: white;
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 1);
 }
 
-#dropdownMenu:hover {
-   border-top: white solid 1px;
-  border-bottom: white solid 1px;
-  border-radius: 0%;
-}
-
-#dropdownMenu:focus {
-  border: none;
-  box-shadow: none;
-}
-
-#loginButton {
-  background-color: transparent;
-  border: none;
-  color: white;
-}
-
-#loginButton:hover {
-  border-top: white solid 1px;
-  border-bottom: white solid 1px;
-  border-radius: 0%;
-}
-
-#loginButton:focus {
-  border: none;
-  box-shadow: none;
-}
 
 #logo {
   max-height: 10vh;
+}
+
+.navbar-collapse {
+  flex-grow: 0;
 }

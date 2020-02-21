@@ -14,26 +14,28 @@ function Search(props) {
   }
 
   return (
-    <Form inline onSubmit={handleSubmit}>
-      <FormControl
-        className="form-horizontal"
-        id="searchbar"
-        placeholder="Search events"
-        type="text"
-        name="searchString"
-        onChange={handleChange}
-        value={searchString}
-      />
-      <Button
-        id="searchButton"
-        type="submit"
-        onClick={handleRedirect}
-        variant="outline-success"
-      >
-        Search
-      </Button>
-      {redirect && <Redirect to={`/results/${lastSearch}`} />}
-    </Form>
+    <div id="searchContainer">
+      <Form inline onSubmit={handleSubmit}>
+        <FormControl
+          className="form-horizontal"
+          id="searchbar"
+          placeholder="Search events"
+          type="text"
+          name="searchString"
+          onChange={handleChange}
+          value={searchString}
+        />
+        <Button
+          id="searchButton"
+          type="submit"
+          onClick={handleRedirect}
+          variant="outline-success"
+        >
+          Search
+        </Button>
+        {redirect && <Redirect to={`/results/${lastSearch}`} />}
+      </Form>
+    </div>
   );
 }
 

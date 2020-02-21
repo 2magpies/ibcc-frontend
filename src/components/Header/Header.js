@@ -11,7 +11,8 @@ import {
   Modal,
   Button,
   Tab,
-  Form
+  Form,
+  NavDropdown
 } from 'react-bootstrap';
 
 function Header(props) {
@@ -202,39 +203,44 @@ function Header(props) {
 
   return (
     <>
-      <Navbar variant="light" id="navbar">
+      <Navbar collapseOnSelect expand="lg" id="navbar" variant="dark">
         <Navbar.Brand href="/">
           <img src="/images/gup-logo2.png" alt="GatherUp!" id="logo" />
         </Navbar.Brand>
-        <Search
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          searchString={searchString}
-          lastSearch={lastSearch}
-        />
-        {storedUser && (
-          <DropdownButton alignRight title={storedUser} id="dropdownMenu">
-            <Dropdown.Item eventKey="1" href="/manage-event">
-              Manage Events
-            </Dropdown.Item>
-            {storedAdmin && (
-              <Dropdown.Item eventKey="2" href="/manage-user">
-                Manage Users
-              </Dropdown.Item>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav id="navbarSearch">
+            <Search
+              handleChange={handleChange}
+              handleSubmit={handleSubmit}
+              searchString={searchString}
+              lastSearch={lastSearch}
+            />
+          </Nav>
+          <Nav align="center" className="mr-auto" id="navbarLogin">
+            {!storedUser && (
+              <Nav.Link onClick={() => setModalShow(true)}>Login</Nav.Link>
             )}
-            <Dropdown.Divider />
-            <Dropdown.Item eventKey="4" onClick={resetStoredName}>
-              Logout
-            </Dropdown.Item>
-          </DropdownButton>
-        )}
-        {!storedUser && (
-          <Button id="loginButton" onClick={() => setModalShow(true)}>
-            Login
-          </Button>
-        )}
-        <CenteredModal show={modalShow} onHide={() => setModalShow(false)} />
+            {storedUser && (
+              <NavDropdown title={storedUser} id="basic-nav-dropdown" >
+                <NavDropdown.Item href="/manage-event">
+                  Manage Events
+                </NavDropdown.Item>
+                {storedAdmin && (
+                  <NavDropdown.Item href="/manage-user">
+                    Manage Users
+                  </NavDropdown.Item>
+                )}
+                <NavDropdown.Divider />
+                <NavDropdown.Item onClick={resetStoredName}>
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            )}
+          </Nav>
+        </Navbar.Collapse>
       </Navbar>
+      <CenteredModal show={modalShow} onHide={() => setModalShow(false)} />
     </>
   );
 }
