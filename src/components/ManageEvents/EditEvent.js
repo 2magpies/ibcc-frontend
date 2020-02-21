@@ -24,7 +24,6 @@ function Edit(props) {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(event);
 
     let data = {};
 
@@ -183,14 +182,18 @@ function Edit(props) {
               placeholder={event.imageUrl}
             />
           </Form.Group>
-          <Button variant="outline-success" type="submit">
+          <Button
+            variant="outline-success"
+            onClick={handleSubmit}
+            type="submit"
+          >
             Submit
           </Button>
-          <Button id="deleteEventButton" onClick={deleteEvent}>Delete Event</Button>
+          <Button id="deleteEventButton" onClick={deleteEvent}>
+            Delete Event
+          </Button>
         </form>
-        
       </div>
-      
     </>
   );
 }

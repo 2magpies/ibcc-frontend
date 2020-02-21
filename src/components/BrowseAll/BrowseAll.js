@@ -117,8 +117,10 @@ function BrowseAll(props) {
                   <Card.Body>
                     <Card.Title>{event.name}</Card.Title>
                     <Card.Text>
-                      <p>{moment(event.date).format('ddd, MMM Do YYYY')}</p>
-                      <p>{event.location}</p>
+                      {moment(event.date).format('ddd, MMM Do YYYY')}
+                      </Card.Text>
+                      <Card.Text>
+                      {event.location}
                     </Card.Text>
                   </Card.Body>
                 </Link>
@@ -141,8 +143,10 @@ function BrowseAll(props) {
                   <Card.Body>
                     <Card.Title>{event.name}</Card.Title>
                     <Card.Text>
-                      <p>{moment(event.date).format('ddd, MMM Do YYYY')}</p>
-                      <p>{event.location}</p>
+                      {moment(event.date).format('ddd, MMM Do YYYY')}
+                    </Card.Text>
+                    <Card.Text>
+                      {event.location}
                     </Card.Text>
                   </Card.Body>
                 </Link>
