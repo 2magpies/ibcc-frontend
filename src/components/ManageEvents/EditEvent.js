@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Col, InputGroup, Button } from 'react-bootstrap';
-import moment from 'moment';
+import dayjs from 'dayjs';
 function Edit(props) {
   const { match } = props;
   const [event, setEvent] = useState([]);
@@ -106,7 +106,7 @@ function Edit(props) {
             <Col>
               <Form.Group>
                 <Form.Label>
-                  Date: {moment(event.date).format('ddd, MMM Do YYYY')}
+                  Date: {dayjs(event.date).format('ddd, MMM DD YYYY')}
                 </Form.Label>
                 <Form.Control type="date" name="date" />
               </Form.Group>

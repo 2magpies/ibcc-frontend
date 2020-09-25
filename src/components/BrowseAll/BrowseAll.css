@@ -3,7 +3,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 25% 75%;
-
   color: white;
   border-radius: 0%;
   font-family: 'Raleway';
@@ -23,15 +22,17 @@
   padding: 1rem;
 }
 
-/* #browse:hover {
-  background-color: #;
-} */
 
 .cardGlow:hover {
   filter: drop-shadow(4px 2px 10px var(--primary));
 }
 
+.cardGlow img{
+  border-bottom: 2px solid rgb(184, 184, 184);
+
+}
+
 a:link {
   text-decoration: none;
-  text: black;
+  color: black;
 }

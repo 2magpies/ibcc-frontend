@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { CardColumns, Card } from 'react-bootstrap';
 import './Results.css';
 
@@ -23,7 +23,7 @@ function Results(props) {
                 <Card.Body>
                   <Card.Title>{event.name}</Card.Title>
                   <Card.Text>
-                    {moment(event.date).format('ddd, MMM Do YYYY')}
+                    {dayjs(event.date).format('ddd, MMM DD YYYY')}
                   </Card.Text>
                   <Card.Text>{event.location}</Card.Text>
                 </Card.Body>

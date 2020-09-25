@@ -4,7 +4,7 @@ import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 class RSVP extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       tickets: '1',
       name: 'Name',

@@ -6,8 +6,6 @@ import {
   Row,
   Col,
   Navbar,
-  Dropdown,
-  DropdownButton,
   Modal,
   Button,
   Tab,
@@ -21,6 +19,9 @@ function Header(props) {
   const [storedUser, setStoredUser] = useState(
     localStorage.getItem('storedUserName') || ''
   );
+
+  
+  // eslint-disable-next-line
   const [storedEmail, setStoredEmail] = useState(
     localStorage.getItem('storedEmail') || ''
   );
@@ -34,28 +35,28 @@ function Header(props) {
 
   const onChange = () => {};
 
-  const postNewUser = data => {
+  const postNewUser = (data) => {
     const url = 'https://ibcc.herokuapp.com/users';
 
     fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     })
-      .then(response => {
+      .then((response) => {
         response.json();
       })
-      .then(data => {
+      .then((data) => {
         console.log('Success:', data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Error:', error);
       });
   };
 
-  const registerUser = event => {
+  const registerUser = (event) => {
     event.preventDefault();
     let data = {};
     data.name = event.target['name'].value;
@@ -75,7 +76,7 @@ function Header(props) {
     }
   };
 
-  const resetStoredName = event => {
+  const resetStoredName = (event) => {
     localStorage.clear();
     setStoredUser();
     setStoredAdmin();

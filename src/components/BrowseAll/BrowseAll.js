@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './BrowseAll.css';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
 import {
   CardColumns,
@@ -117,7 +117,7 @@ function BrowseAll(props) {
                   <Card.Body>
                     <Card.Title>{event.name}</Card.Title>
                     <Card.Text>
-                      {moment(event.date).format('ddd, MMM Do YYYY')}
+                      {dayjs(event.date).format('ddd, MMM DD YYYY')}
                     </Card.Text>
                     <Card.Text>{event.location}</Card.Text>
                   </Card.Body>
@@ -141,7 +141,7 @@ function BrowseAll(props) {
                   <Card.Body>
                     <Card.Title>{event.name}</Card.Title>
                     <Card.Text>
-                      {moment(event.date).format('ddd, MMM Do YYYY')}
+                      {dayjs(event.date).format('ddd, MMM DD YYYY')}
                     </Card.Text>
                     <Card.Text>{event.location}</Card.Text>
                   </Card.Body>

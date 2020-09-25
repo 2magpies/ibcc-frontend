@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import {
-
-  Modal,
-  Button,
-  
-  Jumbotron
-} from 'react-bootstrap';
-import './Event.css';
-import moment from 'moment';
+import { Modal, Button, Jumbotron } from 'react-bootstrap';
+import dayjs from 'dayjs';
 import RSVP from '../RSVP/RSVP';
+import './Event.css';
 
 function Event(props) {
   const { match } = props;
@@ -23,8 +17,8 @@ function Event(props) {
   function getEvent() {
     const url = `https://ibcc.herokuapp.com/events/${match.params.id}`;
     fetch(url)
-      .then(response => response.json())
-      .then(response => {
+      .then((response) => response.json())
+      .then((response) => {
         setEvent(response);
       })
       .catch(console.error);
@@ -54,13 +48,12 @@ function Event(props) {
   }
 
   return (
-   
     <div id="eventDetails">
       <Jumbotron style={{ background: `url(${event.imageUrl}) ` }}>
         <div className="eventInfo">
           <h1>{event.name}</h1>
           <h2>
-            <p>{moment(event.date).format('ddd, MMM Do YYYY')}</p>
+            <p>{dayjs(event.date).format('ddd, MMM DD YYYY')}</p>
             <p>{event.location}</p>
           </h2>
           <p>
@@ -78,12 +71,8 @@ function Event(props) {
         <div className="rsvp">
           <CenteredModal show={modalShow} onHide={() => setModalShow(false)} />
         </div>
-        {/* <div className="map">
-          <Map />
-        </div> */}
       </div>
-      </div>
-   
+    </div>
   );
 }
 
